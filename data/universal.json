@@ -1,0 +1,9 @@
+[
+  {
+    "category": "Universal Micro Features",
+    "subcategories": [
+      { "name": "Eyes - Colors", "items": ["Deep brown", "Hazel gradient", "Emerald green", "Ocean blue", "Steel gray"] },
+      { "name": "Skin - Tones", "items": ["Porcelain", "Ivory", "Olive", "Tan", "Deep ebony"] }
+    ]
+  }
+]
