@@ -1,835 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>COMPLETE HUMAN MICRO FEATURES — Universal Descriptor Glossary</title>
-
-<!-- =========================
-     Styles: Dark Glass + Subtle Neon
-     ========================= -->
-<style>
-:root{
-  --bg1:#090010;    /* deep black-purple */
-  --bg2:#20003f;    /* royal purple */
-  --bg3:#001f3f;    /* navy blue */
-  --glass: rgba(255,255,255,0.03);
-  --glass-strong: rgba(255,255,255,0.06);
-  --panel-border: rgba(255,255,255,0.06);
-  --accent: #3ef3ff; /* electric cyan accent */
-  --muted: rgba(255,255,255,0.65);
-  --glass-blur: 10px;
-  --radius: 12px;
-  --gap: 14px;
-  font-family: Inter, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-
-/* Page background gradient */
-html,body{height:100%;margin:0}
-body{
-  min-height:100%;
-  background: linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
-  color:var(--muted);
-  padding:28px;
-  box-sizing:border-box;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* Container */
-.app {
-  max-width:1320px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 360px 1fr 340px;
-  gap:24px;
-  align-items:start;
-}
-
-/* Header / Title */
-.header {
-  grid-column: 1 / -1;
-  display:flex;
-  gap:12px;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:6px;
-}
-.title {
-  display:flex;
-  gap:12px;
-  align-items:baseline;
-}
-.title h1{
-  color:#e8f9ff;
-  margin:0;
-  font-size:20px;
-  letter-spacing:0.4px;
-  text-shadow:0 6px 20px rgba(0,0,0,0.5);
-}
-.title p {
-  margin:0;
-  color: rgba(255,255,255,0.28);
-  font-size:12px;
-}
-
-/* Panels (glass) */
-.panel{
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.014));
-  border-radius:var(--radius);
-  border:1px solid var(--panel-border);
-  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
-  padding:14px;
-  box-shadow:
-    0 6px 20px rgba(0,0,0,0.6),
-    0 0 28px rgba(62,243,255,0.03) inset;
-}
-
-/* Left column: navigation & search */
-.left {
-  display:flex;
-  flex-direction:column;
-  gap:var(--gap);
-  position:sticky;
-  top:28px;
-  height:calc(100vh - 56px);
-  overflow:auto;
-  padding-right:4px;
-}
-
-/* Search */
-.search {
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-.search input{
-  width:100%;
-  border-radius:10px;
-  padding:10px 12px;
-  background:rgba(255,255,255,0.02);
-  border:1px solid rgba(255,255,255,0.04);
-  color:var(--muted);
-  outline:none;
-  font-size:14px;
-}
-.search input::placeholder{color:rgba(255,255,255,0.28)}
-.search .kbd {
-  font-size:12px;
-  background:rgba(255,255,255,0.03);
-  padding:6px 8px;border-radius:8px;color:var(--muted);
-  border:1px solid rgba(255,255,255,0.03);
-}
-
-/* Category list */
-.cat-list{display:flex;flex-direction:column;gap:8px}
-.cat-item {
-  padding:10px 12px;
-  border-radius:10px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  transition: transform .14s ease, box-shadow .14s ease;
-  border:1px solid rgba(255,255,255,0.02);
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
-}
-.cat-item:hover{ transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.6) }
-.cat-item.active {
-  background: linear-gradient(90deg, rgba(62,243,255,0.06), rgba(62,243,255,0.02));
-  box-shadow: 0 6px 30px rgba(62,243,255,0.06);
-  border:1px solid rgba(62,243,255,0.12);
-  color: #e8fbff;
-}
-
-/* Main content (center) */
-.center {
-  overflow:auto;
-  max-height:calc(100vh - 56px);
-  padding-right:8px;
-}
-
-/* Feature panels container (expanded list) */
-.feature-list {
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-
-/* Category panel inside center */
-.feature-category {
-  padding:14px;
-  border-radius:10px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.03);
-}
-.feature-category h2{ margin:0 0 8px 0; color:#e6fbff; font-size:16px; display:flex; justify-content:space-between; align-items:center}
-.subcategory { margin:8px 0 6px 0; color:var(--muted); font-weight:600; font-size:13px }
-
-/* item container grid */
-.item-container {
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap:8px;
-  margin-top:8px;
-}
-.feature-box {
-  padding:10px 12px;
-  border-radius:10px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
-  border:1px solid rgba(255,255,255,0.02);
-  color:var(--muted);
-  cursor:pointer;
-  font-size:13px;
-  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
-  user-select:none;
-}
-.feature-box:hover{ transform: translateY(-4px); box-shadow:0 8px 18px rgba(0,0,0,0.6)}
-.feature-box.selected{
-  background: linear-gradient(90deg, rgba(62,243,255,0.06), rgba(62,243,255,0.02));
-  box-shadow: 0 10px 40px rgba(62,243,255,0.06), 0 0 30px rgba(62,243,255,0.04) inset;
-  border:1px solid rgba(62,243,255,0.12);
-  color:#e8fbff;
-  transform: scale(1.02);
-}
-
-/* Right column: controls & selected features */
-.right {
-  display:flex;
-  flex-direction:column;
-  gap:var(--gap);
-  position:sticky;
-  top:28px;
-  height:calc(100vh - 56px);
-  overflow:auto;
-  padding-left:4px;
-}
-
-/* Selected tags */
-.selected-features {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.tag {
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  padding:8px 10px;
-  border-radius:999px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.03);
-  color:var(--muted);
-  font-size:13px;
-}
-.tag .remove{ cursor:pointer; font-weight:700; color:rgba(255,255,255,0.5) }
-
-/* Controls row */
-.controls { display:flex; gap:8px; flex-wrap:wrap }
-.button {
-  background: linear-gradient(90deg, rgba(62,243,255,0.04), rgba(62,243,255,0.02));
-  border:1px solid rgba(62,243,255,0.06);
-  color:#e8fbff;
-  padding:8px 12px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:600;
-}
-
-/* Prompt box */
-.prompt {
-  margin-top:10px;
-  padding:12px;
-  border-radius:10px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
-  border:1px solid rgba(255,255,255,0.02);
-  min-height:84px;
-  color:var(--muted);
-  font-size:13px;
-  white-space:pre-wrap;
-}
-
-/* Sliders */
-.slider-row { display:flex; flex-direction:column; gap:8px; margin-top:12px }
-.slider { display:flex; gap:12px; align-items:center }
-.slider input[type=range]{flex:1}
-.slider label { min-width:72px; color:rgba(255,255,255,0.7); font-size:13px }
-
-/* Utility small text */
-.small { font-size:12px; color:rgba(255,255,255,0.4) }
-
-/* Search results dropdown (keyboard) */
-.search-results {
-  margin-top:8px;
-  display:block;
-  max-height:240px; overflow:auto;
-  background: rgba(0,0,0,0.18);
-  border-radius:8px;
-  padding:8px;
-  border:1px solid rgba(255,255,255,0.02);
-}
-.search-results .result {
-  padding:8px 10px; border-radius:8px; cursor:pointer;
-}
-.search-results .result:hover { background: rgba(62,243,255,0.03); color:#e8fbff }
-
-/* Responsive */
-@media (max-width:1100px){
-  .app{ grid-template-columns: 1fr; padding-bottom:120px }
-  .left, .right { position:relative; max-height:none; top:auto; height:auto }
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Universal PromptAssist — Glossary</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app" role="application" aria-label="Complete Human Micro Features">
-    <!-- HEADER -->
-    <div class="header">
-      <div class="title">
-        <h1>🔬 COMPLETE HUMAN MICRO FEATURES</h1>
-        <p>Master Glossary — Micro descriptors for prompt engineering & character generation</p>
-      </div>
-      <div class="small" style="display:flex;gap:12px;align-items:center">
-        <div class="small">Theme: Astro Intelligence · Dark Glass</div>
-        <div class="small">Built: Single-file</div>
-      </div>
+  <header class="topbar panel glass">
+    <div class="top-left">
+      <h1 class="title">🔬 COMPLETE HUMAN MICRO FEATURES</h1>
+      <p class="subtitle">Master Glossary — Micro-granular features for prompt engineering</p>
     </div>
 
-    <!-- LEFT: Search + Category Nav -->
-    <aside class="left panel" aria-label="Sidebar">
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div class="search" role="search" aria-label="Search features">
-          <input id="searchInput" type="search" placeholder="🔍 Search any feature from the complete glossary..." aria-label="Search features" />
-          <div class="kbd">/</div>
-        </div>
-        <div id="searchResults" class="search-results" style="display:none"></div>
+    <div class="prompt-tools">
+      <div id="promptBox" class="prompt-box" contenteditable="true" aria-label="Prompt box" role="textbox" spellcheck="false">
+        Your final, optimized description will appear here...
       </div>
 
-      <div style="height:8px"></div>
-
-      <div class="small" style="padding-bottom:6px">Feature Categories</div>
-      <div class="cat-list" id="categoryList" aria-label="Categories"></div>
-
-      <div style="height:8px"></div>
-      <div class="small">Quick actions</div>
-      <div style="display:flex;gap:8px;margin-top:8px">
-        <button id="btnRandom" class="button" title="Random Character">Random</button>
-        <button id="btnOptimize" class="button" title="Optimize Prompt">Optimize</button>
+      <div class="tools">
+        <button id="randomBtn" class="btn neon">Random Character</button>
+        <button id="optimizeBtn" class="btn neon">Optimize Prompt</button>
+        <button id="copyBtn" class="btn">Copy</button>
+        <button id="exportBtn" class="btn">Export JSON</button>
+        <label class="toggle-ratio">
+          <input id="includeRatios" type="checkbox">
+          <span>Include ratios</span>
+        </label>
       </div>
-      <div style="height:12px"></div>
-      <div class="small">Tips</div>
-      <div class="small" style="opacity:0.9">Click features to add them to the prompt. Use sliders to add ratios. Use search for quick find (press <strong>/</strong>).</div>
+    </div>
+  </header>
+
+  <main class="main-grid">
+    <aside class="left-panel panel glass" aria-label="Navigation">
+      <div class="search-wrap">
+        <input id="searchInput" class="search" placeholder="🔍 Search any feature from the complete glossary..." aria-label="Search features">
+      </div>
+
+      <h3>Feature Categories</h3>
+      <div id="categoryList" class="category-list" role="list"></div>
     </aside>
 
-    <!-- CENTER: Full expanded glossary -->
-    <main class="center" role="main">
-      <div id="featureList" class="feature-list" aria-live="polite"></div>
-    </main>
-
-    <!-- RIGHT: Selected, prompt generator, sliders -->
-    <aside class="right panel" aria-label="Controls">
-      <h3 style="margin:0;color:#e8fbff">Selected Features</h3>
-      <div id="selectedFeatures" class="selected-features" aria-live="polite">
-        <div class="small">Selected features will appear here as interactive tags...</div>
+    <section class="center-panel panel glass" aria-live="polite">
+      <div id="selectedFeaturesContainer" class="selected-features">
+        <h3>Selected Features</h3>
+        <div id="selectedTags" class="tags"></div>
+        <button id="clearAll" class="btn small">Clear All</button>
       </div>
 
-      <div style="margin-top:12px" class="controls" aria-hidden="false">
-        <button id="copyBtn" class="button">Copy</button>
-        <button id="exportJSONBtn" class="button">Export JSON</button>
-        <button id="exportTxtBtn" class="button">Export TXT</button>
-        <button id="clearAll" class="button" title="Clear selected">Clear</button>
+      <div id="featureDisplay" class="feature-display">
+        <h2 id="featureTitle">Selected Category</h2>
+        <div id="subcategories" class="subcategories"></div>
+      </div>
+    </section>
+
+    <aside class="right-panel panel glass">
+      <h3>Body Ratio Sliders</h3>
+      <div class="sliders">
+        <label>Chest <span id="chestVal">50%</span>
+          <input id="chest" type="range" min="20" max="95" value="50">
+        </label>
+        <label>Waist <span id="waistVal">35%</span>
+          <input id="waist" type="range" min="15" max="80" value="35">
+        </label>
+        <label>Hips <span id="hipsVal">50%</span>
+          <input id="hips" type="range" min="25" max="85" value="50">
+        </label>
+        <label>Shoulders <span id="shouldersVal">50%</span>
+          <input id="shoulders" type="range" min="20" max="80" value="50">
+        </label>
+        <label>Legs <span id="legsVal">50%</span>
+          <input id="legs" type="range" min="30" max="70" value="50">
+        </label>
+        <label>Muscle <span id="muscleVal">20%</span>
+          <input id="muscle" type="range" min="5" max="95" value="20">
+        </label>
       </div>
 
-      <div style="margin-top:14px">
-        <div class="small">Smart Prompt Generator</div>
-        <div id="promptBox" class="prompt" contenteditable="false" aria-label="Generated prompt">Your final, optimized description will appear here...</div>
-      </div>
-
-      <div class="slider-row" aria-label="Body ratio sliders">
-        <div class="small">Custom Body Ratios (toggle add to prompt with checkbox)</div>
-
-        <div class="slider"><label>Chest</label><input id="sChest" type="range" min="20" max="95" value="45"><div class="small" id="sChestVal">45%</div></div>
-        <div class="slider"><label>Waist</label><input id="sWaist" type="range" min="15" max="80" value="32"><div class="small" id="sWaistVal">32%</div></div>
-        <div class="slider"><label>Hip</label><input id="sHip" type="range" min="25" max="95" value="42"><div class="small" id="sHipVal">42%</div></div>
-        <div class="slider"><label>Shoulder</label><input id="sShoulder" type="range" min="20" max="80" value="50"><div class="small" id="sShoulderVal">50%</div></div>
-        <div class="slider"><label>Leg length</label><input id="sLeg" type="range" min="30" max="70" value="50"><div class="small" id="sLegVal">50%</div></div>
-        <div class="slider"><label>Muscle</label><input id="sMuscle" type="range" min="5" max="95" value="30"><div class="small" id="sMuscleVal">30%</div></div>
-      </div>
-
-      <div style="margin-top:12px" class="small">Prompt Controls</div>
-      <div style="display:flex;gap:8px;margin-top:8px">
-        <button id="btnGenerate" class="button">Generate Prompt</button>
-        <button id="btnRandomizeSliders" class="button">Randomize Ratios</button>
-      </div>
-
-      <div style="height:16px"></div>
-      <div class="small">Keyboard: Press <strong>/</strong> to focus search. Press <strong>Esc</strong> to clear search.</div>
+      <h3>Quick Actions</h3>
+      <button id="applyRatios" class="btn small neon">Apply Ratios to Prompt</button>
+      <button id="randomRatios" class="btn small">Randomize Ratios</button>
     </aside>
+  </main>
 
-  </div>
+  <footer class="foot panel glass">
+    <small>Data loaded from separate files in <code>/data</code>. Add more JSON files and refresh.</small>
+  </footer>
 
-  <!-- =========================
-       Data + Script
-       ========================= -->
-  <script>
-  /*************************************************************************
-   * Embedded DATA objects (sample). Replace / expand these arrays with
-   * your complete lists (you can paste thousands of descriptors in the
-   * same schema below). Keep structure { category, subcategories: [ { name, items: [] } ] }
-   *
-   * IMPORTANT: keep each category as an array of objects (so adding more files later
-   * is straightforward).
-   *************************************************************************/
-
-  // NOTE: This is a short sample payload. Paste your full content here.
-  const DATA_HEAD = [
-    {
-      "category":"Head (Female)",
-      "subcategories":[
-        {"name":"Head Shape","items":["classic oval","elongated oval","diamond","heart","inverted triangle"]},
-        {"name":"Forehead","items":["prominent","domed","broad high","narrow high","smooth intellectual"]},
-        {"name":"Cheekbones","items":["prominent","aristocratic","sculpted","soft","defined"]}
-      ]
-    }
-  ];
-
-  const DATA_EYES = [
-    {
-      "category":"Eyes",
-      "subcategories":[
-        {"name":"Shape","items":["classic almond","narrow almond","perfect round","large round","downturned"]},
-        {"name":"Color (Blue)","items":["crystal ice","arctic ice","deep sapphire","royal sapphire"]},
-        {"name":"Color (Green)","items":["deep emerald","brilliant emerald","soft jade","pale jade"]}
-      ]
-    }
-  ];
-
-  const DATA_HAIR = [
-    {
-      "category":"Hair",
-      "subcategories":[
-        {"name":"Length","items":["ultra short pixie","classic pixie","ear length","shoulder length","waist length","floor length"]},
-        {"name":"Texture","items":["pin straight","sleek straight","soft waves","defined curls","tight coils","loose coils"]},
-        {"name":"Color","items":["jet black","chestnut brown","honey blonde","platinum silver","rose gold","pastel rainbow"]}
-      ]
-    }
-  ];
-
-  const DATA_BODY = [
-    {
-      "category":"Body (Female)",
-      "subcategories":[
-        {"name":"Somatotype","items":["Ectomorph (lean)","Mesomorph (muscular)","Endomorph (rounded)"]},
-        {"name":"Breast Size","items":["AA","A","B","C","D","DD","E"]},
-        {"name":"Height","items":["very short (under 5'2\")","petite","average","tall","statuesque"]}
-      ]
-    },
-    {
-      "category":"Body (Male)",
-      "subcategories":[
-        {"name":"Chest","items":["narrow chest","average chest","broad chest","V-shaped torso"]},
-        {"name":"Facial Hair","items":["clean shaven","light stubble","thick beard","full beard"]},
-        {"name":"Build","items":["slender","athletic","muscular","stocky"]}
-      ]
-    }
-  ];
-
-  const DATA_MAKEUP = [
-    {
-      "category":"Makeup",
-      "subcategories":[
-        {"name":"Eye Makeup","items":["classic smoky","dramatic smoky","classic wing","dramatic wing","glitter accents"]},
-        {"name":"Lips","items":["matte red","glossy nude","gradient tint","soft pink","dark plum"]}
-      ]
-    }
-  ];
-
-  const DATA_NAILS = [
-    {
-      "category":"Nails",
-      "subcategories":[
-        {"name":"Shape","items":["Almond","Coffin","Square","Stiletto","Round"]},
-        {"name":"Style","items":["French tip","Glossy gel","Chrome finish","Matte pastel","Crystal accents"]}
-      ]
-    }
-  ];
-
-  // MASTER array for rendering - place ANY additional category arrays here
-  const MASTER_DATA = [...DATA_HEAD, ...DATA_EYES, ...DATA_HAIR, ...DATA_BODY, ...DATA_MAKEUP, ...DATA_NAILS];
-
-  /*************************************************************************
-   * SCRIPT: render, search, selection, prompt generation, export
-   *************************************************************************/
-
-  // Simple utility
-  function el(tag, props={}, children=[]){
-    const e=document.createElement(tag);
-    for(const k in props) if(k!=='style') e.setAttribute(k, props[k]);
-    if(props.style) Object.assign(e.style, props.style);
-    if(typeof children === 'string') e.textContent=children;
-    else (children||[]).forEach(c=> e.appendChild( typeof c === 'string' ? document.createTextNode(c) : c));
-    return e;
-  }
-
-  // App state
-  const state = {
-    data: MASTER_DATA,
-    selected: [], // array of strings
-    searchIndex: [], // flattened index of {text, path, category, subcategory}
-    activeCategory: null
-  };
-
-  // Build search index for fast filtering
-  function buildIndex(){
-    state.searchIndex = [];
-    state.data.forEach(cat=>{
-      cat.subcategories.forEach(sub=>{
-        sub.items.forEach(item=>{
-          state.searchIndex.push({
-            text: item.toLowerCase(),
-            item,
-            category: cat.category,
-            subcategory: sub.name
-          });
-        });
-      });
-    });
-  }
-
-  // Render category nav (left)
-  function renderCategoryList(){
-    const list = document.getElementById('categoryList');
-    list.innerHTML = '';
-    state.data.forEach(cat=>{
-      const d = el('div',{class:'cat-item',tabindex:0,role:'button','aria-label':cat.category},cat.category);
-      d.addEventListener('click', ()=> {
-        // scroll center to that category panel
-        document.querySelectorAll('.cat-item').forEach(c=>c.classList.remove('active'));
-        d.classList.add('active');
-        scrollToCategory(cat.category);
-      });
-      d.addEventListener('keydown', (ev)=>{ if(ev.key==='Enter' || ev.key===' ') d.click() });
-      list.appendChild(d);
-    });
-  }
-
-  // Scroll-to helper center column
-  function scrollToCategory(catName){
-    const target = Array.from(document.querySelectorAll('.feature-category h2')).find(h=>h.dataset && h.dataset.cat===catName);
-    if(target){
-      const rect = target.getBoundingClientRect();
-      window.scrollTo({ top: window.scrollY + rect.top - 80, behavior:'smooth' });
-    }
-  }
-
-  // Render full expanded glossary (center)
-  function renderFullGlossary(){
-    const container = document.getElementById('featureList');
-    container.innerHTML = '';
-    state.data.forEach(cat=>{
-      const panel = el('section',{class:'feature-category', role:'region'});
-      const h2 = el('h2', {'data-cat':cat.category}, cat.category);
-      panel.appendChild(h2);
-      cat.subcategories.forEach(sub=>{
-        const subh = el('div',{class:'subcategory'}, sub.name);
-        panel.appendChild(subh);
-        const itemsWrap = el('div',{class:'item-container'});
-        sub.items.forEach(item=>{
-          const box = el('div',{class:'feature-box', tabindex:0, role:'button', 'aria-label':item}, item);
-          box.addEventListener('click', ()=> toggleSelect(item, box));
-          box.addEventListener('keydown', (ev)=>{ if(ev.key==='Enter' || ev.key===' ') box.click() });
-          // keyboard hint for selection
-          itemsWrap.appendChild(box);
-        });
-        panel.appendChild(itemsWrap);
-      });
-      container.appendChild(panel);
-    });
-  }
-
-  // selection toggle
-  function toggleSelect(itemText, element){
-    const idx = state.selected.indexOf(itemText);
-    if(idx !== -1){
-      // remove
-      state.selected.splice(idx,1);
-      element.classList.remove('selected');
-    } else {
-      state.selected.push(itemText);
-      element.classList.add('selected');
-    }
-    renderSelected();
-    updatePromptLive();
-  }
-
-  // render selected tags on right
-  function renderSelected(){
-    const wrap = document.getElementById('selectedFeatures');
-    wrap.innerHTML = '';
-    if(state.selected.length === 0){
-      const hint = el('div', {class:'small'}, 'Selected features will appear here as interactive tags...');
-      wrap.appendChild(hint);
-      return;
-    }
-    state.selected.forEach(s=>{
-      const tag = el('div',{class:'tag'}, [
-        document.createTextNode(s),
-        el('span',{class:'remove', role:'button', tabindex:0, title:'Remove'}, '✕')
-      ]);
-      // remove handler
-      tag.querySelector('.remove').addEventListener('click', ()=> {
-        // deselect in grid
-        document.querySelectorAll('.feature-box').forEach(b=>{ if(b.textContent === s) b.classList.remove('selected') });
-        state.selected = state.selected.filter(x=>x!==s);
-        renderSelected();
-        updatePromptLive();
-      });
-      tag.querySelector('.remove').addEventListener('keydown',(ev)=>{ if(ev.key==='Enter' || ev.key===' ') ev.target.click() });
-      wrap.appendChild(tag);
-    });
-  }
-
-  // Build prompt text from selections + sliders
-  function buildPrompt(){
-    const parts = [];
-    // add selected features
-    if(state.selected.length) parts.push(state.selected.join(', '));
-    // add ratios
-    const ratios = gatherRatios();
-    if(Object.keys(ratios).length){
-      const ratioParts = [];
-      if(ratios.chest) ratioParts.push(`chest ${ratios.chest}%`);
-      if(ratios.waist) ratioParts.push(`waist ${ratios.waist}%`);
-      if(ratios.hip) ratioParts.push(`hip ${ratios.hip}%`);
-      if(ratios.shoulder) ratioParts.push(`shoulder ${ratios.shoulder}%`);
-      if(ratios.leg) ratioParts.push(`leg-length ${ratios.leg}%`);
-      if(ratios.muscle) ratioParts.push(`muscle ${ratios.muscle}%`);
-      parts.push(ratioParts.join(', '));
-    }
-    const prompt = parts.length ? parts.join('. ') : 'No features selected — start by searching or clicking features.';
-    return prompt;
-  }
-
-  // Update prompt live into box
-  function updatePromptLive(){
-    const box = document.getElementById('promptBox');
-    box.textContent = buildPrompt();
-  }
-
-  // gather slider values
-  function gatherRatios(){
-    return {
-      chest: document.getElementById('sChest').value,
-      waist: document.getElementById('sWaist').value,
-      hip: document.getElementById('sHip').value,
-      shoulder: document.getElementById('sShoulder').value,
-      leg: document.getElementById('sLeg').value,
-      muscle: document.getElementById('sMuscle').value
-    };
-  }
-
-  // copy to clipboard
-  async function copyPrompt(){
-    try {
-      await navigator.clipboard.writeText(buildPrompt());
-      flashButton('#copyBtn', 'Copied!');
-    } catch(e){
-      alert('Copy failed — use manual selection to copy the prompt.');
-    }
-  }
-  function flashButton(sel, msg){
-    const b = document.querySelector(sel);
-    const orig = b.textContent;
-    b.textContent = msg;
-    setTimeout(()=> b.textContent = orig,1200);
-  }
-
-  // Export JSON of selected features + ratios
-  function exportJSON(){
-    const payload = {
-      selected: state.selected.slice(),
-      ratios: gatherRatios(),
-      generatedAt: new Date().toISOString()
-    };
-    const dataStr = JSON.stringify(payload, null, 2);
-    downloadFile('selected_features.json', dataStr, 'application/json');
-  }
-
-  // Export TXT (plain prompt)
-  function exportTXT(){
-    const content = buildPrompt();
-    downloadFile('prompt.txt', content, 'text/plain');
-  }
-
-  function downloadFile(filename, content, mime){
-    const a = document.createElement('a');
-    const blob = new Blob([content], {type:mime});
-    a.href = URL.createObjectURL(blob);
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(()=> URL.revokeObjectURL(a.href), 1000);
-  }
-
-  // Random character generator: pick random items from each category
-  function randomCharacter(){
-    state.selected = [];
-    state.data.forEach(cat=>{
-      cat.subcategories.forEach(sub=>{
-        if(sub.items && sub.items.length){
-          const pick = sub.items[Math.floor(Math.random()*sub.items.length)];
-          state.selected.push(pick);
-        }
-      });
-    });
-    // randomize sliders mildly
-    document.getElementById('sChest').value = randRange(25,70);
-    document.getElementById('sWaist').value = randRange(18,65);
-    document.getElementById('sHip').value = randRange(30,80);
-    document.getElementById('sShoulder').value = randRange(30,70);
-    document.getElementById('sLeg').value = randRange(35,65);
-    document.getElementById('sMuscle').value = randRange(5,80);
-    updateSliderDisplays();
-    renderSelected();
-    // mark selected UI boxes
-    document.querySelectorAll('.feature-box').forEach(b=> { b.classList.remove('selected'); if(state.selected.includes(b.textContent)) b.classList.add('selected')});
-    updatePromptLive();
-    flashButton('#btnRandom','Randomized');
-  }
-  function randRange(a,b){ return Math.floor(Math.random()*(b-a+1))+a }
-
-  // Optimize: dedupe (already unique), alphabetical
-  function optimizePrompt(){
-    state.selected = Array.from(new Set(state.selected)).sort((a,b)=> a.localeCompare(b));
-    renderSelected();
-    updatePromptLive();
-    flashButton('#btnOptimize','Optimized');
-  }
-
-  // Search: debounced
-  let searchTimer = null;
-  function handleSearchInput(q){
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(()=> {
-      const t = q.trim().toLowerCase();
-      const resultsEl = document.getElementById('searchResults');
-      if(!t){
-        resultsEl.style.display='none';
-        resultsEl.innerHTML='';
-        return;
-      }
-      const matches = state.searchIndex.filter(i=> i.text.includes(t)).slice(0,80);
-      resultsEl.innerHTML='';
-      if(matches.length===0){
-        const no = el('div',{}, 'No results');
-        resultsEl.appendChild(no); resultsEl.style.display='block'; return;
-      }
-      matches.forEach(m=>{
-        const r = el('div',{class:'result', tabindex:0}, `${m.item} — ${m.category} / ${m.subcategory}`);
-        r.addEventListener('click', ()=> { addFromSearch(m.item); resultsEl.style.display='none'; });
-        r.addEventListener('keydown',(ev)=>{ if(ev.key==='Enter') r.click()});
-        resultsEl.appendChild(r);
-      });
-      resultsEl.style.display='block';
-    }, 160);
-  }
-
-  // Add item from search result
-  function addFromSearch(itemText){
-    // locate the node in document to highlight
-    const node = Array.from(document.querySelectorAll('.feature-box')).find(b=> b.textContent === itemText);
-    if(node) {
-      node.click();
-      node.scrollIntoView({behavior:'smooth',block:'center'});
-    } else {
-      // if not in DOM yet, just add to selected
-      if(!state.selected.includes(itemText)) state.selected.push(itemText);
-      renderSelected(); updatePromptLive();
-    }
-  }
-
-  // keyboard shortcuts: focus search on '/'
-  function setupKeyboardShortcuts(){
-    document.addEventListener('keydown', (ev)=>{
-      if(ev.key === '/') {
-        ev.preventDefault();
-        document.getElementById('searchInput').focus();
-      } else if(ev.key === 'Escape') {
-        const s = document.getElementById('searchInput');
-        s.value=''; handleSearchInput('');
-        s.blur();
-      }
-    });
-  }
-
-  // update slider display labels
-  function updateSliderDisplays(){
-    document.getElementById('sChestVal').textContent = document.getElementById('sChest').value + '%';
-    document.getElementById('sWaistVal').textContent = document.getElementById('sWaist').value + '%';
-    document.getElementById('sHipVal').textContent = document.getElementById('sHip').value + '%';
-    document.getElementById('sShoulderVal').textContent = document.getElementById('sShoulder').value + '%';
-    document.getElementById('sLegVal').textContent = document.getElementById('sLeg').value + '%';
-    document.getElementById('sMuscleVal').textContent = document.getElementById('sMuscle').value + '%';
-  }
-
-  // randomize sliders
-  function randomizeSliders(){
-    document.getElementById('sChest').value = randRange(20,90);
-    document.getElementById('sWaist').value = randRange(15,78);
-    document.getElementById('sHip').value = randRange(25,95);
-    document.getElementById('sShoulder').value = randRange(20,80);
-    document.getElementById('sLeg').value = randRange(30,70);
-    document.getElementById('sMuscle').value = randRange(5,95);
-    updateSliderDisplays();
-    updatePromptLive();
-    flashButton('#btnRandomizeSliders','Done');
-  }
-
-  /*************************************************************************
-   * Initialization
-   *************************************************************************/
-  function initApp(){
-    buildIndex();
-    renderCategoryList();
-    renderFullGlossary();
-    renderSelected();
-    updatePromptLive();
-    setupKeyboardShortcuts();
-    updateSliderDisplays();
-
-    // event bindings
-    document.getElementById('searchInput').addEventListener('input', (e)=> handleSearchInput(e.target.value));
-    document.getElementById('copyBtn').addEventListener('click', copyPrompt);
-    document.getElementById('exportJSONBtn').addEventListener('click', exportJSON);
-    document.getElementById('exportTxtBtn').addEventListener('click', exportTXT);
-    document.getElementById('clearAll').addEventListener('click', ()=>{
-      state.selected = []; document.querySelectorAll('.feature-box').forEach(b=>b.classList.remove('selected')); renderSelected(); updatePromptLive();
-    });
-    document.getElementById('btnRandom').addEventListener('click', randomCharacter);
-    document.getElementById('btnOptimize').addEventListener('click', optimizePrompt);
-    document.getElementById('btnGenerate').addEventListener('click', ()=> { document.getElementById('promptBox').textContent = buildPrompt(); flashButton('#btnGenerate','Generated') });
-    document.getElementById('btnRandomizeSliders').addEventListener('click', randomizeSliders);
-
-    // slider bindings
-    ['sChest','sWaist','sHip','sShoulder','sLeg','sMuscle'].forEach(id=>{
-      document.getElementById(id).addEventListener('input', ()=>{
-        updateSliderDisplays();
-        updatePromptLive();
-      });
-    });
-
-    // search keyboard '/' focus
-    document.addEventListener('keydown', (e)=> {
-      if(e.key === '/' && document.activeElement.id !== 'searchInput') {
-        e.preventDefault();
-        document.getElementById('searchInput').focus();
-      }
-    });
-  }
-
-  // kick off
-  window.addEventListener('DOMContentLoaded', initApp);
-  </script>
+  <script src="glossary.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
