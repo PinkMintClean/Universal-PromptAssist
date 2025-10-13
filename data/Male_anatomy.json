@@ -1,9 +1,0 @@
-[
-  {
-    "category": "Male Anatomy",
-    "subcategories": [
-      { "name": "Head", "items": ["Square jawline", "Strong mandible", "High forehead", "Broad temples"] },
-      { "name": "Facial Hair", "items": ["Light stubble", "Full beard", "Goatee", "Clean-shaven"] }
-    ]
-  }
-]
