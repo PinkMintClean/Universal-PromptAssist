@@ -1,0 +1,10 @@
+[
+  {
+    "category": "Female Anatomy",
+    "subcategories": [
+      { "name": "Head", "items": ["Oval contour", "Heart-shaped face", "Square jawline", "Diamond structure", "Soft round cheeks"] },
+      { "name": "Forehead", "items": ["High elegant forehead", "Rounded temple line", "Defined brow ridge", "Smooth contour"] },
+      { "name": "Eyes", "items": ["Almond", "Round", "Hooded", "Wide-set", "Upturned"] }
+    ]
+  }
+]
