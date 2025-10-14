@@ -79,6 +79,55 @@
       },
       "Shape": ["attached", "partially attached", "dangling", "rounded", "pointed"],
       "Position": ["elevated", "mid", "low"]
-    }
+    },
+    
+{
+  "breasts": {
+    "sizes": {
+      "small": {
+        "descriptors": ["slender", "petite", "compact", "firm", "perky"],
+        "shapes": ["round", "teardrop", "slight cone"]
+      },
+      "medium": {
+        "descriptors": ["moderate", "full", "soft", "balanced", "natural"],
+        "shapes": ["round", "teardrop", "natural", "classic teardrop"]
+      },
+      "large": {
+        "descriptors": ["full", "heavy", "soft", "plump", "voluminous"],
+        "shapes": ["round", "teardrop", "conical", "natural droop"]
+      },
+      "extra_large": {
+        "descriptors": ["very full", "heavy", "ample", "voluptuous", "prominent"],
+        "shapes": ["round", "teardrop", "conical", "natural droop", "pendulous"]
+      }
+    },
+    "overall_shapes": ["round", "teardrop", "conical", "natural", "pendulous", "asymmetric"]
+  }
+}
+{
+  "torso": {
+    "sizes": {
+      "slim": {
+        "descriptors": ["narrow", "slender", "flat-chested", "tight-waisted", "elongated"],
+        "shapes": ["straight", "slightly curved", "hourglass-light"]
+      },
+      "athletic": {
+        "descriptors": ["toned", "defined", "muscular", "broad-shouldered", "fit"],
+        "shapes": ["rectangular", "inverted triangle", "hourglass-light"]
+      },
+      "average": {
+        "descriptors": ["balanced", "moderate", "natural", "softly curved", "proportional"],
+        "shapes": ["hourglass", "rectangle", "oval"]
+      },
+      "broad": {
+        "descriptors": ["wide-shouldered", "strong", "robust", "solid", "sturdy"],
+        "shapes": ["inverted triangle", "rectangle", "broad-hourglass"]
+      },
+      "full": {
+        "descriptors": ["soft", "round", "voluptuous", "curvy", "plump"],
+        "shapes": ["hourglass", "oval", "rounded"]
+      }
+    },
+    "overall_shapes": ["hourglass", "rectangle", "inverted triangle", "oval", "straight"]
   }
 }
