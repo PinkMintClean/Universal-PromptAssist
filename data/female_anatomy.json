@@ -1,10 +1,125 @@
-[
-  {
-    "category": "Female Anatomy",
-    "subcategories": [
-      { "name": "Head", "items": ["Oval contour", "Heart-shaped face", "Square jawline", "Diamond structure", "Soft round cheeks"] },
-      { "name": "Forehead", "items": ["High elegant forehead", "Rounded temple line", "Defined brow ridge", "Smooth contour"] },
-      { "name": "Eyes", "items": ["Almond", "Round", "Hooded", "Wide-set", "Upturned"] }
-    ]
-  }
-]
+{
+  "gender": "female",
+  "categories": [
+    {
+      "category": "Head",
+      "subcategories": {
+        "Head Shape": {
+          "small": ["oval", "heart", "diamond", "round"],
+          "medium": ["classic oval", "balanced diamond", "soft heart"],
+          "large": ["long oval", "strong heart", "elongated diamond"]
+        },
+        "Forehead": {
+          "height": ["high", "medium", "low"],
+          "width": ["narrow", "average", "broad"],
+          "shape": ["rounded", "flat", "sloped", "domed"]
+        },
+        "Cheekbones": {
+          "prominence": ["high", "moderate", "low"],
+          "shape": ["angular", "soft", "sculpted"],
+          "descriptors": ["defined", "delicate", "aristocratic", "softly contoured"]
+        },
+        "Jawline": {
+          "size": ["small", "medium", "strong"],
+          "shape": ["rounded", "angular", "tapered", "square"],
+          "descriptors": ["soft", "defined", "sharp", "feminine"]
+        },
+        "Chin": {
+          "size": ["small", "medium", "large"],
+          "shape": ["pointed", "rounded", "square", "soft"],
+          "descriptors": ["subtle", "prominent", "delicate"]
+        },
+        "Eyes": {
+          "size": ["small", "medium", "large", "oversized"],
+          "shape": ["almond", "round", "narrow", "droopy", "upturned"],
+          "color": ["blue", "green", "brown", "hazel", "violet", "amber"],
+          "expression": ["soft", "piercing", "kind", "intense", "playful"]
+        },
+        "Nose": {
+          "size": ["small", "medium", "large", "prominent"],
+          "shape": ["straight", "button", "aquiline", "flat", "rounded"],
+          "bridge": ["low", "medium", "high"],
+          "nostrils": ["narrow", "wide", "flared"],
+          "descriptors": ["cute", "refined", "elegant", "sharp"]
+        },
+        "Mouth & Lips": {
+          "size": ["thin", "medium", "full", "plump"],
+          "shape": ["cupid's bow", "rounded", "heart-shaped", "wide"],
+          "descriptors": ["soft", "sensual", "delicate", "expressive"]
+        },
+        "Ears": {
+          "size": ["small", "medium", "large", "prominent"],
+          "shape": ["attached", "free-hanging", "pointed", "round"],
+          "position": ["high", "average", "low"],
+          "descriptors": ["delicate", "refined", "elegant", "soft"]
+        }
+      }
+    },
+    {
+      "category": "Torso",
+      "subcategories": {
+        "Neck": {
+          "length": ["short", "medium", "long"],
+          "thickness": ["slender", "medium", "strong"],
+          "descriptors": ["graceful", "delicate", "muscular", "elegant"]
+        },
+        "Shoulders": {
+          "width": ["narrow", "medium", "broad"],
+          "shape": ["sloped", "angled", "rounded"],
+          "descriptors": ["feminine", "delicate", "athletic", "elegant"]
+        },
+        "Arms": {
+          "length": ["short", "medium", "long"],
+          "muscle tone": ["thin", "fit", "sculpted", "defined"],
+          "descriptors": ["slender", "graceful", "strong", "toned"]
+        },
+        "Hands": {
+          "size": ["small", "medium", "large"],
+          "finger length": ["short", "average", "long"],
+          "descriptors": ["delicate", "elegant", "graceful", "refined"]
+        },
+        "Breasts": {
+          "size": ["AA", "A", "B", "C", "D", "DD", "E", "F"],
+          "shape": {
+            "AA": ["perky", "small rounded", "tight contour"],
+            "B": ["soft rounded", "natural contour", "slightly teardrop"],
+            "C": ["balanced round", "teardrop", "natural slope"],
+            "D": ["full round", "projected teardrop", "lifted"],
+            "DD": ["heavy teardrop", "voluptuous", "curved contour"]
+          },
+          "texture": {
+            "AA": ["firm", "smooth", "youthful"],
+            "C": ["soft", "balanced", "supple"],
+            "DD": ["full", "lush", "mature"]
+          },
+          "descriptors": {
+            "AA": ["petite", "graceful", "delicate"],
+            "C": ["balanced", "natural", "proportionate"],
+            "DD": ["full-bodied", "mature", "sensual"]
+          }
+        }
+      }
+    },
+    {
+      "category": "Legs",
+      "subcategories": {
+        "Thighs": {
+          "size": ["slim", "medium", "muscular", "curvy"],
+          "shape": ["straight", "curved", "tapered", "toned"],
+          "descriptors": ["firm", "sculpted", "long", "shapely"]
+        },
+        "Calves": {
+          "size": ["slim", "medium", "muscular"],
+          "shape": ["tapered", "rounded", "toned"],
+          "descriptors": ["elegant", "defined", "athletic"]
+        },
+        "Feet": {
+          "size": ["small", "medium", "large"],
+          "arch": ["flat", "medium", "high"],
+          "toe length": ["short", "medium", "long"],
+          "descriptors": ["delicate", "graceful", "elegant"]
+        }
+      }
+    }
+  ]
+}
