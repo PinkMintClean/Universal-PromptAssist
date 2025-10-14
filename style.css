@@ -152,3 +152,77 @@ body{
   .prompt-tools{ min-width:unset; }
   .right-panel{ order:3; }
 }
+body {
+  background: linear-gradient(180deg, #1a002a, #3b0073, #0d1b5a, #091b4a);
+  background-size: 100% 300%;
+  animation: gradientScroll 20s ease infinite;
+  min-height: 300vh;
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+@keyframes gradientScroll {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.feature-pill {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.feature-pill:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.feature-pill.selected {
+  background: rgba(255, 100, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 100, 255, 0.8);
+  transform: scale(1.08);
+}
+
+.prompt-controls button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prompt-controls button:hover {
+  background: rgba(255, 100, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 100, 255, 0.6);
+}
+
+#promptBox {
+  width: 100%;
+  min-height: 120px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
