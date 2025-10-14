@@ -1,9 +1,116 @@
-[
-  {
-    "category": "Male Anatomy",
-    "subcategories": [
-      { "name": "Head", "items": ["Square jawline", "Strong mandible", "High forehead", "Broad temples"] },
-      { "name": "Facial Hair", "items": ["Light stubble", "Full beard", "Goatee", "Clean-shaven"] }
-    ]
-  }
-]
+{
+  "gender": "male",
+  "categories": [
+    {
+      "category": "Head",
+      "subcategories": {
+        "Head Shape": {
+          "small": ["oval", "rounded", "soft square"],
+          "medium": ["classic square", "diamond", "rectangular"],
+          "large": ["broad square", "strong rectangle", "elongated diamond"]
+        },
+        "Forehead": {
+          "height": ["high", "medium", "low"],
+          "width": ["narrow", "average", "broad"],
+          "shape": ["flat", "rounded", "sloped", "domed"]
+        },
+        "Cheekbones": {
+          "prominence": ["high", "moderate", "low"],
+          "shape": ["angular", "defined", "sculpted"],
+          "descriptors": ["strong", "masculine", "geometric", "chiseled"]
+        },
+        "Jawline": {
+          "size": ["small", "medium", "strong"],
+          "shape": ["square", "angular", "tapered"],
+          "descriptors": ["defined", "masculine", "chiseled", "prominent"]
+        },
+        "Chin": {
+          "size": ["small", "medium", "large"],
+          "shape": ["square", "pointed", "rounded"],
+          "descriptors": ["prominent", "strong", "masculine", "subtle"]
+        },
+        "Eyes": {
+          "size": ["small", "medium", "large", "prominent"],
+          "shape": ["almond", "round", "narrow", "deep-set"],
+          "color": ["blue", "green", "brown", "hazel", "gray", "amber"],
+          "expression": ["intense", "piercing", "kind", "soft", "focused"]
+        },
+        "Nose": {
+          "size": ["small", "medium", "large", "prominent"],
+          "shape": ["straight", "aquiline", "button", "broad", "flat"],
+          "bridge": ["low", "medium", "high"],
+          "nostrils": ["narrow", "wide", "flared"],
+          "descriptors": ["strong", "defined", "prominent", "masculine"]
+        },
+        "Mouth & Lips": {
+          "size": ["thin", "medium", "full"],
+          "shape": ["straight", "rounded", "wide", "heart-shaped"],
+          "descriptors": ["strong", "expressive", "defined", "masculine"]
+        },
+        "Ears": {
+          "size": ["small", "medium", "large", "prominent"],
+          "shape": ["attached", "free-hanging", "rounded", "pointed"],
+          "position": ["high", "average", "low"],
+          "descriptors": ["masculine", "defined", "strong"]
+        }
+      }
+    },
+    {
+      "category": "Torso",
+      "subcategories": {
+        "Neck": {
+          "length": ["short", "medium", "long"],
+          "thickness": ["slender", "medium", "muscular"],
+          "descriptors": ["strong", "athletic", "defined"]
+        },
+        "Shoulders": {
+          "width": ["narrow", "medium", "broad", "expansive"],
+          "shape": ["sloped", "angled", "straight"],
+          "descriptors": ["masculine", "strong", "athletic", "broad"]
+        },
+        "Arms": {
+          "length": ["short", "medium", "long"],
+          "muscle tone": ["thin", "fit", "sculpted", "muscular"],
+          "descriptors": ["strong", "defined", "athletic", "toned"]
+        },
+        "Hands": {
+          "size": ["small", "medium", "large"],
+          "finger length": ["short", "average", "long"],
+          "descriptors": ["strong", "masculine", "defined", "refined"]
+        },
+        "Chest & Pectorals": {
+          "size": ["small", "medium", "large", "muscular"],
+          "shape": ["flat", "rounded", "sculpted", "broad"],
+          "muscle tone": ["defined", "moderate", "well-toned", "bulging"],
+          "descriptors": ["strong", "athletic", "masculine", "chiseled"]
+        },
+        "Abdomen": {
+          "muscle definition": ["flat", "toned", "defined", "ripped"],
+          "shape": ["rectangular", "V-shape", "broad", "soft"],
+          "descriptors": ["athletic", "lean", "fit", "sculpted"]
+        }
+      }
+    },
+    {
+      "category": "Legs",
+      "subcategories": {
+        "Thighs": {
+          "size": ["slim", "medium", "muscular", "thick"],
+          "shape": ["straight", "curved", "tapered", "toned"],
+          "descriptors": ["strong", "defined", "athletic", "powerful"]
+        },
+        "Calves": {
+          "size": ["slim", "medium", "muscular", "bulging"],
+          "shape": ["tapered", "rounded", "sculpted"],
+          "descriptors": ["athletic", "toned", "defined"]
+        },
+        "Feet": {
+          "size": ["small", "medium", "large"],
+          "arch": ["flat", "medium", "high"],
+          "toe length": ["short", "medium", "long"],
+          "descriptors": ["strong", "defined", "masculine"]
+        }
+      }
+    }
+  ]
+}
