@@ -1,1 +1,53 @@
+{
+  "style_features": {
+    "Makeup": {
+      "Eyes": {
+        "Eyeshadow": ["neutral", "smoky", "colorful", "metallic", "glitter", "matte", "shimmer"],
+        "Eyeliner": ["classic wing", "dramatic wing", "tightline", "graphic", "smudged", "colored"],
+        "Mascara": ["lengthening", "volumizing", "waterproof", "colored"],
+        "Brows": ["filled", "natural", "arched", "threaded", "soap brow", "glitter"]
+      },
+      "Face": {
+        "Foundation": ["liquid", "powder", "cream", "sheer coverage", "medium coverage", "full coverage"],
+        "Concealer": ["liquid", "cream", "stick", "high coverage", "brightening"],
+        "Blush": ["powder", "cream", "matte", "shimmer", "peach", "pink", "coral"],
+        "Contour": ["cream", "powder", "light", "medium", "dark", "soft", "dramatic"],
+        "Highlighter": ["powder", "cream", "liquid", "subtle", "intense", "iridescent"]
+      },
+      "Lips": {
+        "Lipstick": ["matte", "glossy", "satin", "liquid", "long-wear", "hydrating"],
+        "Lipliner": ["matching", "contrasting", "defining", "overline"],
+        "Lip Gloss": ["clear", "tinted", "sparkly", "hydrating", "plumping"],
+        "Lip Shape": ["full", "thin", "heart-shaped", "bow-shaped", "round"]
+      }
+    },
+    "Nails & Manicure": {
+      "Nail Shape": ["square", "round", "oval", "almond", "stiletto", "coffin", "ballerina"],
+      "Length": ["short", "medium", "long", "extra long", "ultra short"],
+      "Finish": ["matte", "glossy", "shimmer", "metallic", "frosted"],
+      "Art": ["french", "geometric", "floral", "gradient", "marble", "glitter", "custom designs"],
+      "Colors": ["nude", "pink", "red", "blue", "pastel", "neon", "dark", "metallic", "rainbow"]
+    },
+    "Accessories": {
+      "Jewelry": {
+        "Earrings": ["studs", "hoops", "dangles", "chandeliers", "ear cuffs"],
+        "Necklaces": ["choker", "pendant", "chain", "layered", "statement"],
+        "Bracelets": ["bangle", "cuff", "chain", "tennis", "beaded"],
+        "Rings": ["solitaire", "band", "cocktail", "stackable", "statement"],
+        "Anklets": ["chain", "beaded", "charm", "rope"],
+        "Body Jewelry": ["belly ring", "nose ring", "lip ring", "piercings"]
+      },
+      "Head Accessories": ["headband", "hair clip", "beanie", "cap", "fedora", "scarf"],
+      "Eyewear": ["sunglasses", "reading glasses", "aviator", "cat eye", "round", "wayfarer"],
+      "Bags & Purses": ["tote", "satchel", "crossbody", "backpack", "clutch", "hobo"],
+      "Tech Accessories": ["smartphone case", "headphones", "earbuds", "watch", "smartwatch"]
+    },
+    "Fashion & Style": {
+      "Clothing Style": ["casual", "formal", "business", "sporty", "streetwear", "vintage", "futuristic"],
+      "Fabric Types": ["cotton", "silk", "linen", "wool", "leather", "denim", "synthetic"],
+      "Footwear": ["sneakers", "heels", "boots", "sandals", "loafers", "formal shoes", "flats"],
+      "Outerwear": ["jacket", "coat", "blazer", "hoodie", "cape", "trench coat"]
+    }
+  }
+}
 
