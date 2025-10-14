@@ -82,28 +82,70 @@
     },
     
 {
-  "breasts": {
-    "sizes": {
-      "small": {
-        "descriptors": ["slender", "petite", "compact", "firm", "perky"],
-        "shapes": ["round", "teardrop", "slight cone"]
-      },
-      "medium": {
-        "descriptors": ["moderate", "full", "soft", "balanced", "natural"],
-        "shapes": ["round", "teardrop", "natural", "classic teardrop"]
-      },
-      "large": {
-        "descriptors": ["full", "heavy", "soft", "plump", "voluminous"],
-        "shapes": ["round", "teardrop", "conical", "natural droop"]
-      },
-      "extra_large": {
-        "descriptors": ["very full", "heavy", "ample", "voluptuous", "prominent"],
-        "shapes": ["round", "teardrop", "conical", "natural droop", "pendulous"]
-      }
+"breasts": {
+  "sizes": {
+    "AA": {
+      "descriptors": [
+        "tiny", "slight", "petite", "subtle", "flat", "delicate", "youthful", "compact"
+      ],
+      "shapes": [
+        "round", "teardrop", "natural", "slightly pointed"
+      ]
     },
-    "overall_shapes": ["round", "teardrop", "conical", "natural", "pendulous", "asymmetric"]
-  }
+    "A": {
+      "descriptors": [
+        "small", "firm", "soft", "perky", "slightly curved", "youthful", "balanced", "slender"
+      ],
+      "shapes": [
+        "round", "teardrop", "classic", "perky"
+      ]
+    },
+    "B": {
+      "descriptors": [
+        "moderate", "well-proportioned", "soft", "fuller", "slightly firm", "balanced", "gentle curve", "shapely"
+      ],
+      "shapes": [
+        "round", "teardrop", "classic", "natural", "uplifted"
+      ]
+    },
+    "C": {
+      "descriptors": [
+        "full", "curved", "voluptuous", "pronounced", "soft-firm", "shapely", "balanced", "rounded top", "gentle slope"
+      ],
+      "shapes": [
+        "round-full", "teardrop", "classic", "uplifted", "natural"
+      ]
+    },
+    "D": {
+      "descriptors": [
+        "ample", "firm", "shapely", "curvy", "full-bodied", "pronounced", "heavy", "voluminous", "rounded bottom", "uplifted top"
+      ],
+      "shapes": [
+        "round-full", "teardrop", "heart-shaped", "uplifted", "dramatic"
+      ]
+    },
+    "DD": {
+      "descriptors": [
+        "voluminous", "large", "curvaceous", "full-bodied", "heavy", "shapely", "pronounced", "rounded top", "pendulous", "ample cleavage"
+      ],
+      "shapes": [
+        "round-full", "heart-shaped", "uplifted", "dramatic", "teardrop"
+      ]
+    },
+    "E": {
+      "descriptors": [
+        "very large", "pronounced", "curvaceous", "heavy", "full-bodied", "dramatic", "rounded bottom", "pendulous", "ample", "bold"
+      ],
+      "shapes": [
+        "round-full", "heart-shaped", "dramatic", "uplifted", "teardrop"
+      ]
+    }
+  },
+  "overall_shapes": [
+    "round", "teardrop", "heart-shaped", "uplifted", "natural", "classic", "dramatic", "pendulous"
+  ]
 }
+
 {
   "torso": {
     "sizes": {
@@ -131,3 +173,219 @@
     "overall_shapes": ["hourglass", "rectangle", "inverted triangle", "oval", "straight"]
   }
 }
+
+{
+  "waist": {
+    "sizes": {
+      "tiny": {
+        "descriptors": ["narrow", "slender", "defined", "tight", "petite"],
+        "shapes": ["straight", "slightly curved", "hourglass-light"]
+      },
+      "small": {
+        "descriptors": ["slim", "tapered", "softly defined", "gentle curve", "athletic"],
+        "shapes": ["hourglass", "slightly tapered", "oval"]
+      },
+      "average": {
+        "descriptors": ["balanced", "natural", "proportional", "moderate curve", "soft"],
+        "shapes": ["hourglass", "rectangle", "oval"]
+      },
+      "wide": {
+        "descriptors": ["strong", "robust", "full", "curvy", "sturdy"],
+        "shapes": ["hourglass", "broad", "rounded"]
+      },
+      "thick": {
+        "descriptors": ["voluptuous", "plump", "soft", "pronounced curve", "rounded"],
+        "shapes": ["rounded", "hourglass-full", "oval"]
+      }
+    },
+    "overall_shapes": ["hourglass", "straight", "slightly tapered", "oval", "rounded"]
+  }
+}
+
+
+{
+  "hips": {
+    "sizes": {
+      "narrow": {
+        "descriptors": ["slim", "petite", "delicate", "subtle curve", "lean"],
+        "shapes": ["straight", "slightly curved", "pear-light"]
+      },
+      "small": {
+        "descriptors": ["tapered", "soft curve", "balanced", "athletic", "gentle"],
+        "shapes": ["pear", "oval", "slightly curved"]
+      },
+      "average": {
+        "descriptors": ["proportional", "moderate curve", "natural", "soft", "balanced"],
+        "shapes": ["pear", "hourglass-light", "oval"]
+      },
+      "wide": {
+        "descriptors": ["full", "curvy", "strong", "rounded", "robust"],
+        "shapes": ["hourglass", "pear-full", "rounded"]
+      },
+      "thick": {
+        "descriptors": ["voluptuous", "plump", "pronounced curve", "soft", "ample"],
+        "shapes": ["hourglass-full", "pear-full", "rounded"]
+      }
+    },
+    "overall_shapes": ["pear", "hourglass", "straight", "oval", "rounded"]
+  }
+}
+
+
+{
+  "glutes": {
+    "sizes": {
+      "small": {
+        "descriptors": ["slim", "compact", "toned", "slightly lifted", "firm"],
+        "shapes": ["flat", "slightly rounded", "athletic-light"]
+      },
+      "medium": {
+        "descriptors": ["balanced", "moderately rounded", "softly contoured", "natural lift", "proportional"],
+        "shapes": ["oval", "classic round", "slightly pronounced"]
+      },
+      "large": {
+        "descriptors": ["full", "voluminous", "curvaceous", "dramatically rounded", "firm and strong"],
+        "shapes": ["round", "dramatic curve", "striated", "ample"]
+      }
+    },
+    "overall_shapes": ["flat", "slightly rounded", "oval", "round", "dramatic curve", "ample"]
+  }
+}
+
+  
+
+
+{
+  "thighs": {
+    "sizes": {
+      "slim": {
+        "descriptors": ["lean", "toned", "slender", "defined", "lightly muscled"],
+        "shapes": ["straight", "slightly curved", "athletic-light"]
+      },
+      "average": {
+        "descriptors": ["balanced", "proportional", "moderately muscular", "softly contoured", "smooth"],
+        "shapes": ["slightly rounded", "classic", "slightly muscular"]
+      },
+      "full": {
+        "descriptors": ["curvy", "well-rounded", "voluminous", "softly plump", "defined curve"],
+        "shapes": ["rounded-full", "pear-shaped", "slightly pronounced"]
+      },
+      "thick": {
+        "descriptors": ["powerful", "muscular", "dramatic curve", "strongly rounded", "substantial"],
+        "shapes": ["bubble-shaped", "hourglass-thick", "full-curve"]
+      },
+      "extra_thick": {
+        "descriptors": ["very muscular", "maximally rounded", "pronounced bulk", "dramatic", "voluminous"],
+        "shapes": ["bubble-max", "hourglass-max", "dramatic-full"]
+      }
+    },
+    "overall_shapes": ["straight", "slightly curved", "slightly rounded", "rounded-full", "bubble-shaped", "hourglass-thick", "bubble-max"]
+  }
+}
+
+{
+  "upper_legs": {
+    "front_thighs": {
+      "sizes": {
+        "small": {
+          "descriptors": ["slender", "toned", "defined quads", "subtle curves", "lean"],
+          "shapes": ["straight", "slightly curved", "athletic"]
+        },
+        "medium": {
+          "descriptors": ["balanced", "smoothly contoured", "moderately muscular", "softly defined"],
+          "shapes": ["oval", "slightly rounded", "classic athletic"]
+        },
+        "large": {
+          "descriptors": ["full", "strong", "powerful", "muscular", "rounded"],
+          "shapes": ["round", "dramatic curve", "striated"]
+        }
+      },
+      "overall_shapes": ["straight", "oval", "slightly rounded", "round", "dramatic curve"]
+    },
+    "back_thighs": {
+      "sizes": {
+        "small": {
+          "descriptors": ["slim", "toned", "lean hamstrings", "subtle definition", "compact"],
+          "shapes": ["straight", "slightly curved", "athletic-light"]
+        },
+        "medium": {
+          "descriptors": ["moderately muscular", "balanced tone", "softly sculpted", "smoothly contoured"],
+          "shapes": ["oval", "slightly rounded", "classic athletic"]
+        },
+        "large": {
+          "descriptors": ["strong", "muscular", "rounded hamstrings", "voluminous", "powerful"],
+          "shapes": ["round", "dramatic curve", "striated"]
+        }
+      },
+      "overall_shapes": ["straight", "oval", "slightly rounded", "round", "dramatic curve"]
+    },
+    "inner_thighs": {
+      "sizes": {
+        "small": {
+          "descriptors": ["slender", "tight", "compact", "slight curve", "defined"],
+          "shapes": ["straight", "slightly curved", "narrow"]
+        },
+        "medium": {
+          "descriptors": ["balanced", "smoothly contoured", "moderate curve", "softly defined"],
+          "shapes": ["oval", "slightly rounded", "classic shape"]
+        },
+        "large": {
+          "descriptors": ["full", "curvy", "voluminous", "rounded", "soft"],
+          "shapes": ["round", "dramatic curve", "ample"]
+        }
+      },
+      "overall_shapes": ["straight", "slightly curved", "oval", "round", "dramatic curve"]
+    },
+    "outer_thighs": {
+      "sizes": {
+        "small": {
+          "descriptors": ["slim", "lean", "subtle curve", "toned", "delicate"],
+          "shapes": ["straight", "slightly curved", "athletic-light"]
+        },
+        "medium": {
+          "descriptors": ["moderate", "balanced", "smoothly contoured", "softly sculpted"],
+          "shapes": ["oval", "slightly rounded", "classic shape"]
+        },
+        "large": {
+          "descriptors": ["full", "rounded", "powerful curve", "voluminous", "muscular"],
+          "shapes": ["round", "dramatic curve", "striated"]
+        }
+      },
+      "overall_shapes": ["straight", "slightly curved", "oval", "round", "dramatic curve"]
+    }
+  }
+}
+
+
+
+
+
+{
+  "calves": {
+    "sizes": {
+      "slim": {
+        "descriptors": ["lean", "toned", "delicate", "slender", "lightly defined"],
+        "shapes": ["straight", "slightly curved", "athletic-light"]
+      },
+      "average": {
+        "descriptors": ["balanced", "proportional", "moderately muscled", "softly contoured", "smooth"],
+        "shapes": ["slightly rounded", "classic", "moderate"]
+      },
+      "full": {
+        "descriptors": ["curvy", "well-rounded", "softly plump", "defined curve", "voluminous"],
+        "shapes": ["rounded-full", "hourglass-light", "slightly pronounced"]
+      },
+      "thick": {
+        "descriptors": ["strong", "muscular", "dramatic curve", "substantial", "pronounced"],
+        "shapes": ["bubble-shaped", "hourglass-thick", "full-curve"]
+      },
+      "extra_thick": {
+        "descriptors": ["very muscular", "maximally rounded", "powerful bulk", "dramatic", "voluminous"],
+        "shapes": ["bubble-max", "hourglass-max", "dramatic-full"]
+      }
+    },
+    "overall_shapes": ["straight", "slightly curved", "slightly rounded", "rounded-full", "bubble-shaped", "hourglass-thick", "bubble-max"]
+  }
+}
+
+
