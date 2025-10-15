@@ -1,11 +1,11 @@
 // ===== Load All Glossary Files (JSON) =====
 async function loadGlossary() {
   const files = [
-    "data/female_anatomy.json",
-    "data/male_anatomy.json",
-    "data/micro_features.json",
-    "data/style_features.json",
-    "data/technical_features.json"
+    "./data/female_anatomy.json",
+    "./data/male_anatomy.json",
+    "./data/micro_features.json",
+    "./data/style_features.json",
+    "./data/technical_features.json"
   ];
 
   try {
