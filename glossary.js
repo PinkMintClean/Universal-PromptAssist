@@ -1,32 +1,44 @@
-// glossary.js
-
 let glossary = [];
 
-// ===== Load All Glossary Files =====
-async function loadGlossary() {
-  const files = [
-    "./data/female_anatomy.json",
-    "./data/male_anatomy.json"
-  ];
+// ===== Load Individual Body-Part JSON Files =====
+async function loadGlossaryFiles(paths) {
+  const glossaryArray = [];
 
-  try {
-    // Fetch and parse each file
-    const responses = await Promise.all(files.map(path => fetch(path)));
-    const data = await Promise.all(responses.map(r => {
-      if (!r.ok) throw new Error(`Failed to load ${r.url}`);
-      return r.json();
-    }));
+  for (const path of paths) {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);
+      const json = await res.json();
 
-    // Merge all arrays
-    glossary = data.flat();
-    console.log("✅ Glossary loaded successfully:", glossary);
+      // Transform JSON object to array format for initGlossary
+      Object.keys(json).forEach(key => {
+        const part = json[key];
+        const sections = [];
 
-    // Initialize the glossary if your UI function exists
-    if (typeof initGlossary === "function") initGlossary(glossary);
-  } catch (err) {
-    console.error("❌ Error loading glossary files:", err);
+        if (part.Size) sections.push({ title: "Size", features: Object.keys(part.Size) });
+        if (part.Tone) sections.push({ title: "Tone", features: Object.keys(part.Tone) });
+        if (part.Peak_Height) sections.push({ title: "Peak Height", features: Object.keys(part.Peak_Height) });
+        if (part.Overall_Shapes) sections.push({ title: "Overall Shapes", features: part.Overall_Shapes });
+        if (part.Descriptors_General) sections.push({ title: "General Descriptors", features: part.Descriptors_General });
+
+        glossaryArray.push({ category: key, sections });
+      });
+    } catch (err) {
+      console.error("❌ Failed to load JSON:", err);
+    }
   }
+
+  glossary = glossaryArray;
+  console.log("✅ Glossary loaded successfully:", glossary);
+
+  if (typeof initGlossary === "function") initGlossary(glossary);
 }
 
-// Load when ready
-document.addEventListener("DOMContentLoaded", loadGlossary);
+// ===== Example: Load Female Anatomy Only =====
+document.addEventListener("DOMContentLoaded", () => {
+  loadGlossaryFiles([
+    "/Universal-PromptAssist/data/female_anatomy/shoulders.json",
+    "/Universal-PromptAssist/data/female_anatomy/biceps.json"
+    // add more files here
+  ]);
+});
