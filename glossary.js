@@ -1,34 +1,32 @@
-// ===== Load All Glossary Files (JSON) =====
+// glossary.js
+
+let glossary = [];
+
+// ===== Load All Glossary Files =====
 async function loadGlossary() {
   const files = [
     "./data/female_anatomy.json",
-    "./data/male_anatomy.json",
-    "./data/micro_features.json",
-    "./data/style_features.json",
-    "./data/technical_features.json"
+    "./data/male_anatomy.json"
   ];
 
   try {
-    // Fetch and parse all glossary data
-    const responses = await Promise.all(files.map(f => fetch(f)));
-    const data = await Promise.all(responses.map(r => r.json()));
+    // Fetch and parse each file
+    const responses = await Promise.all(files.map(path => fetch(path)));
+    const data = await Promise.all(responses.map(r => {
+      if (!r.ok) throw new Error(`Failed to load ${r.url}`);
+      return r.json();
+    }));
 
-    // Flatten all data into one array
-    const glossary = data.flat();
-
+    // Merge all arrays
+    glossary = data.flat();
     console.log("✅ Glossary loaded successfully:", glossary);
 
-    // Initialize display
-    if (typeof initGlossary === "function") {
-      initGlossary(glossary);
-    } else {
-      console.warn("⚠️ initGlossary function not found — check script.js");
-    }
-
+    // Initialize the glossary if your UI function exists
+    if (typeof initGlossary === "function") initGlossary(glossary);
   } catch (err) {
     console.error("❌ Error loading glossary files:", err);
   }
 }
 
-// Run on page load
+// Load when ready
 document.addEventListener("DOMContentLoaded", loadGlossary);
