@@ -37,8 +37,8 @@ async function loadGlossaryFiles(paths) {
 // ===== Example: Load Female Anatomy Only =====
 document.addEventListener("DOMContentLoaded", () => {
   loadGlossaryFiles([
-    "/Universal-PromptAssist/data/female_anatomy/shoulders.json",
-    "/Universal-PromptAssist/data/female_anatomy/biceps.json"
+    "./data/female_anatomy/shoulders.json",
+    "./data/female_anatomy/biceps.json"
     // add more files here
   ]);
 });
