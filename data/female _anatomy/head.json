@@ -1,0 +1,41 @@
+{
+  "Head": {
+    "Shape": {
+      "Small": ["delicate", "petite", "narrow", "slender"],
+      "Medium": ["balanced", "classic oval", "average proportions", "symmetrical"],
+      "Large": ["strong", "broad", "prominent", "defined"]
+    },
+    "Forehead": {
+      "Small": ["low", "slightly sloped", "narrow"],
+      "Medium": ["average height", "smooth", "balanced"],
+      "Large": ["high", "broad", "prominent"]
+    },
+    "Temple": {
+      "Small": ["flat", "subtle", "shallow"],
+      "Medium": ["moderate depth", "gentle curve"],
+      "Large": ["prominent", "sunken", "angular"]
+    },
+    "Face Shape": {
+      "Oval": ["classic", "soft jawline", "balanced features"],
+      "Heart": ["narrow chin", "wide cheekbones", "feminine"],
+      "Diamond": ["high cheekbones", "pointed chin", "angular"],
+      "Square": ["strong jawline", "broad forehead", "defined angles"],
+      "Round": ["soft cheeks", "short jaw", "full face"]
+    },
+    "Cheekbones": {
+      "Small": ["subtle", "soft", "slight definition"],
+      "Medium": ["defined", "high", "moderately prominent"],
+      "Large": ["prominent", "sculpted", "aristocratic"]
+    },
+    "Jawline": {
+      "Small": ["soft", "rounded", "gentle"],
+      "Medium": ["defined", "balanced", "angular"],
+      "Large": ["strong", "square", "pronounced"]
+    },
+    "Chin": {
+      "Small": ["pointed", "delicate", "subtle"],
+      "Medium": ["rounded", "classic", "balanced"],
+      "Large": ["strong", "pronounced", "square"]
+    }
+  }
+}
