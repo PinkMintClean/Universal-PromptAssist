@@ -1,0 +1,23 @@
+{
+  "Ears": {
+    "Size": {
+      "Small": ["delicate", "petite", "subtle curve", "fine contour", "barely protruding"],
+      "Medium": ["balanced", "natural proportion", "defined ridge", "classic"],
+      "Large": ["prominent", "elongated", "strongly shaped", "expressive", "noticeable"]
+    },
+    "Lobe Type": {
+      "Attached": ["seamless contour", "smooth join to jawline", "refined", "delicate"],
+      "Detached": ["distinct lobe drop", "soft pendant form", "classic ear shape"],
+      "Round": ["full curvature", "gentle base", "even form"],
+      "Pointed": ["slightly elven", "tapered tip", "fine upper edge"]
+    },
+    "Cartilage Definition": {
+      "Soft": ["minimal ridge", "gentle folds", "smooth contour"],
+      "Moderate": ["visible ridge", "natural ear lines", "defined top arc"],
+      "Strong": ["pronounced helix", "firm ridge", "structural form", "elegant sculpted"]
+    },
+    "Descriptors": [
+      "symmetrical", "refined", "elegant", "youthful", "dainty", "smooth-skinned", "natural"
+    ]
+  }
+}
