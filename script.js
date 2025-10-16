@@ -1,19 +1,24 @@
+// ===== Grab existing HTML elements =====
+const container = document.querySelector("#subcategories");
+const selectedTags = document.querySelector("#selectedTags");
+const promptBox = document.querySelector("#promptBox");
+const selected = new Set();
+
 // ===== Initialize Glossary Display =====
 function initGlossary(glossary) {
-  const container = document.querySelector("#featureList");
   container.innerHTML = "";
 
   glossary.forEach(category => {
     const section = document.createElement("div");
-    section.className = "category-block glass-panel";
+    section.className = "subcat";
 
-    const title = document.createElement("h2");
+    const title = document.createElement("h4");
     title.textContent = category.category || "Unnamed Category";
     section.appendChild(title);
 
     if (category.sections) {
       category.sections.forEach(sub => {
-        const subTitle = document.createElement("h3");
+        const subTitle = document.createElement("h5");
         subTitle.textContent = sub.title;
         section.appendChild(subTitle);
 
@@ -36,13 +41,7 @@ function initGlossary(glossary) {
   });
 }
 
-// ===== Selected Features & Prompt Builder =====
-const selected = new Set();
-const promptBox = document.createElement("textarea");
-promptBox.id = "promptBox";
-promptBox.placeholder = "Your smart prompt will appear here...";
-document.querySelector("body").prepend(promptBox);
-
+// ===== Feature Selection =====
 function toggleFeature(el, feature) {
   if (selected.has(feature)) {
     selected.delete(feature);
@@ -52,29 +51,37 @@ function toggleFeature(el, feature) {
     el.classList.add("selected");
   }
   updatePrompt();
+  updateSelectedTags();
 }
 
 function updatePrompt() {
-  promptBox.value = Array.from(selected).join(", ");
+  promptBox.innerText = Array.from(selected).join(", ");
 }
 
-// ===== Control Buttons =====
-const controls = document.createElement("div");
-controls.className = "prompt-controls glass-panel";
-controls.innerHTML = `
-  <button id="randomize">🎲 Random Character</button>
-  <button id="optimize">✨ Optimize Prompt</button>
-  <button id="copy">📋 Copy Prompt</button>
-  <button id="export">💾 Export JSON</button>
-`;
-document.body.prepend(controls);
+function updateSelectedTags() {
+  selectedTags.innerHTML = "";
+  selected.forEach(f => {
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = f;
 
-document.querySelector("#copy").onclick = () => {
-  navigator.clipboard.writeText(promptBox.value);
+    const remove = document.createElement("span");
+    remove.className = "remove";
+    remove.textContent = "×";
+    remove.onclick = () => toggleFeature(tag, f);
+
+    tag.appendChild(remove);
+    selectedTags.appendChild(tag);
+  });
+}
+
+// ===== Prompt Control Buttons =====
+document.querySelector("#copyBtn").onclick = () => {
+  navigator.clipboard.writeText(promptBox.innerText);
   alert("✅ Prompt copied to clipboard!");
 };
 
-document.querySelector("#export").onclick = () => {
+document.querySelector("#exportBtn").onclick = () => {
   const blob = new Blob([JSON.stringify(Array.from(selected), null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -84,13 +91,12 @@ document.querySelector("#export").onclick = () => {
   URL.revokeObjectURL(url);
 };
 
-document.querySelector("#optimize").onclick = () => {
+document.querySelector("#optimizeBtn").onclick = () => {
   const sorted = Array.from(selected).sort();
-  promptBox.value = [...new Set(sorted)].join(", ");
+  promptBox.innerText = [...new Set(sorted)].join(", ");
 };
 
-// Randomize (demo: selects 5 random features)
-document.querySelector("#randomize").onclick = () => {
+document.querySelector("#randomBtn").onclick = () => {
   const pills = document.querySelectorAll(".feature-pill");
   selected.clear();
   pills.forEach(p => p.classList.remove("selected"));
@@ -99,4 +105,13 @@ document.querySelector("#randomize").onclick = () => {
     selected.add(p.textContent);
   });
   updatePrompt();
+  updateSelectedTags();
+};
+
+// ===== Clear All Button =====
+document.querySelector("#clearAll").onclick = () => {
+  selected.clear();
+  document.querySelectorAll(".feature-pill").forEach(p => p.classList.remove("selected"));
+  updatePrompt();
+  updateSelectedTags();
 };
