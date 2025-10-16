@@ -1,0 +1,70 @@
+{
+  "Shoulders": {
+    "Width": {
+      "Narrow": {
+        "descriptors": [
+          "delicate", "slim", "petite", "tapered", "graceful", "feminine"
+        ],
+        "shapes": [
+          "gentle slope", "soft taper", "slight curve"
+        ]
+      },
+      "Average": {
+        "descriptors": [
+          "balanced", "moderate width", "proportional", "natural", "even"
+        ],
+        "shapes": [
+          "neutral slope", "smooth curve", "natural fall"
+        ]
+      },
+      "Broad": {
+        "descriptors": [
+          "strong", "athletic", "structured", "dominant", "powerful", "defined"
+        ],
+        "shapes": [
+          "square", "straight line", "angular contour"
+        ]
+      }
+    },
+
+    "Slope": {
+      "Gentle": [
+        "smooth transition from neck to arm", "feminine curve", "natural droop", "soft contour"
+      ],
+      "Straight": [
+        "horizontal line", "neutral profile", "balanced posture", "stable proportion"
+      ],
+      "Sharp": [
+        "steep drop from neck", "angular definition", "athletic form", "prominent deltoids"
+      ]
+    },
+
+    "Definition": {
+      "Soft": [
+        "rounded", "minimal muscle definition", "smooth surface", "natural tone"
+      ],
+      "Toned": [
+        "light muscle definition", "subtle deltoid line", "athletic yet soft", "balanced structure"
+      ],
+      "Defined": [
+        "visible deltoid contour", "firm texture", "pronounced shoulder cap", "strong and sculpted"
+      ]
+    },
+
+    "Proportion": {
+      "Petite": [
+        "compact structure", "narrow frame", "slender neck transition", "gentle angles"
+      ],
+      "Balanced": [
+        "symmetrical alignment", "equal width to hips", "proportional to torso", "even frame"
+      ],
+      "Dominant": [
+        "wider than hips", "upper-body emphasis", "broad frame", "athletic proportion"
+      ]
+    },
+
+    "Overall_Shapes": [
+      "gentle slope", "neutral", "square", "angular", "tapered", "rounded"
+    ]
+  }
+}
