@@ -1,5 +1,15 @@
 {
   "files": [
+    "shoulders.json",
+    "nose.json",    
+    "neck.json",
+    "mouth_lips.json",    
+    "head.json",
+    "hands.json",
+    "face.json",    
+    "eyes.json",
+    "ears.json",
+    "arms.json",
     "biceps.json",
     "shoulders.json",
     "triceps.json",
