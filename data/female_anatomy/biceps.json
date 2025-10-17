@@ -1,0 +1,60 @@
+{
+  "Biceps": {
+    "Size": {
+      "Small": {
+        "descriptors": [
+          "slender", "lightly toned", "compact", "delicate curvature", "subtle definition"
+        ],
+        "shapes": [
+          "straight", "slightly curved", "tapered"
+        ]
+      },
+      "Medium": {
+        "descriptors": [
+          "balanced", "proportional", "softly contoured", "moderately defined", "natural shape"
+        ],
+        "shapes": [
+          "oval", "slightly rounded", "gentle bulge"
+        ]
+      },
+      "Large": {
+        "descriptors": [
+          "full", "rounded", "pronounced", "curvaceous muscle belly", "dominant definition"
+        ],
+        "shapes": [
+          "rounded", "bulged", "dramatic curve"
+        ]
+      },
+      "Muscular": {
+        "descriptors": [
+          "well-defined", "dense", "athletic", "high peak", "sculpted", "vascular"
+        ],
+        "shapes": [
+          "angular", "peaked", "defined contour", "compact bulge"
+        ]
+      }
+    },
+    "Tone": {
+      "Soft": [
+        "smooth", "minimal muscle separation", "gentle lines", "feminine appearance"
+      ],
+      "Toned": [
+        "visible outline", "light muscle distinction", "firm texture", "subtle peak"
+      ],
+      "Defined": [
+        "strong peak", "clear muscle separation", "vascular", "athletic form"
+      ]
+    },
+    "Peak_Height": {
+      "Low": ["flat contour", "soft transition", "minimal bulge"],
+      "Medium": ["gentle slope", "balanced rise", "natural peak"],
+      "High": ["sharp peak", "athletic arc", "prominent definition"]
+    },
+    "Overall_Shapes": [
+      "straight", "rounded", "bulged", "tapered", "angular", "peaked"
+    ],
+    "Descriptors_General": [
+      "balanced", "athletic", "graceful", "strong", "defined", "smooth"
+    ]
+  }
+}
