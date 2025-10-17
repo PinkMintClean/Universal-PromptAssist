@@ -1,16 +1,17 @@
+// glossary.js
+
 let glossary = [];
 
-// ===== Load Individual Body-Part JSON Files =====
+// ====== Core Loader Function ======
 async function loadGlossaryFiles(paths) {
   const glossaryArray = [];
 
   for (const path of paths) {
     try {
       const res = await fetch(path);
-      if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status} - ${path}`);
       const json = await res.json();
 
-      // Transform JSON object to array format for initGlossary
       Object.keys(json).forEach(key => {
         const part = json[key];
         const sections = [];
@@ -23,8 +24,9 @@ async function loadGlossaryFiles(paths) {
 
         glossaryArray.push({ category: key, sections });
       });
+
     } catch (err) {
-      console.error("❌ Failed to load JSON:", err);
+      console.error("❌ Failed to load:", path, err);
     }
   }
 
@@ -34,11 +36,25 @@ async function loadGlossaryFiles(paths) {
   if (typeof initGlossary === "function") initGlossary(glossary);
 }
 
-// ===== Example: Load Female Anatomy Only =====
-document.addEventListener("DOMContentLoaded", () => {
-  loadGlossaryFiles([
-    "./data/female_anatomy/shoulders.json",
-    "./data/female_anatomy/biceps.json"
-    // add more files here
-  ]);
+// ====== Universal Index Loader ======
+async function loadGlossaryFromIndex(folder) {
+  try {
+    const indexPath = `/Universal-PromptAssist/data/${folder}/${folder}_index.json`;
+    const indexRes = await fetch(indexPath);
+    if (!indexRes.ok) throw new Error(`Failed to load index: ${indexPath}`);
+
+    const { files } = await indexRes.json();
+    const filePaths = files.map(f => `/Universal-PromptAssist/data/${folder}/${f}`);
+    await loadGlossaryFiles(filePaths);
+
+  } catch (err) {
+    console.error(`❌ Could not load ${folder}_index.json:`, err);
+  }
+}
+
+// ====== Run Automatically on Page Load ======
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadGlossaryFromIndex("female_anatomy");
+  // later you can easily add:
+  // await loadGlossaryFromIndex("male_anatomy");
 });
