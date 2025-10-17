@@ -1,0 +1,60 @@
+{
+  "Forearms": {
+    "Size": {
+      "Small": {
+        "descriptors": [
+          "slender", "delicate", "lightly toned", "refined", "graceful taper", "subtle veins"
+        ],
+        "shapes": [
+          "straight", "slightly curved", "narrow"
+        ]
+      },
+      "Medium": {
+        "descriptors": [
+          "balanced", "proportional", "defined contour", "softly muscular", "smooth transitions"
+        ],
+        "shapes": [
+          "oval", "slightly rounded", "classic taper"
+        ]
+      },
+      "Large": {
+        "descriptors": [
+          "full", "sturdy", "rounded", "powerful", "solid muscle tone", "thick wrists"
+        ],
+        "shapes": [
+          "rounded", "broad", "tapered end", "slight bulge"
+        ]
+      },
+      "Muscular": {
+        "descriptors": [
+          "defined", "veined", "dense", "athletic", "rope-like structure", "strong ridge definition", "firm texture"
+        ],
+        "shapes": [
+          "tapered", "angular", "corded", "rounded ridge"
+        ]
+      }
+    },
+    "Tone": {
+      "Soft": [
+        "smooth surface", "gentle transition", "subtle taper", "slight muscle suggestion"
+      ],
+      "Toned": [
+        "visible ridge", "firm texture", "defined slope", "athletic refinement"
+      ],
+      "Defined": [
+        "deep contour", "visible veins", "strong ridge line", "high definition under tension"
+      ]
+    },
+    "Definition_Level": {
+      "Low": ["smooth", "minimal outline", "soft transitions"],
+      "Medium": ["balanced contour", "visible muscle taper", "moderate definition"],
+      "High": ["pronounced veins", "sharp ridge", "high separation", "dense muscle tone"]
+    },
+    "Overall_Shapes": [
+      "straight", "slightly curved", "oval", "rounded", "tapered", "corded"
+    ],
+    "Descriptors_General": [
+      "refined", "athletic", "strong", "balanced", "sculpted", "smooth", "defined"
+    ]
+  }
+}
