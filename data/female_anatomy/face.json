@@ -1,0 +1,34 @@
+{
+  "Face": {
+    "Shape": {
+      "Oval": ["balanced", "soft jawline", "classic proportions", "gentle taper"],
+      "Heart": ["wide forehead", "pointed chin", "narrow jaw", "delicate"],
+      "Square": ["strong jawline", "broad forehead", "angular contours"],
+      "Round": ["soft cheeks", "short jaw", "full face", "youthful curve"],
+      "Diamond": ["high cheekbones", "narrow chin", "slim forehead"]
+    },
+    "Forehead": {
+      "Low": ["narrow", "subtle curve", "soft slope"],
+      "Medium": ["balanced", "smooth", "even plane"],
+      "High": ["broad", "open", "elongated", "defined"]
+    },
+    "Cheeks": {
+      "Flat": ["slight contour", "soft definition", "subtle highlight"],
+      "Rounded": ["full", "youthful", "plump", "soft light catch"],
+      "High": ["sculpted", "elevated plane", "refined", "angular beauty"]
+    },
+    "Jawline": {
+      "Soft": ["gentle curve", "rounded edge", "smooth taper"],
+      "Defined": ["angular", "clear line", "sculpted contour"],
+      "Strong": ["broad", "solid", "striking presence"]
+    },
+    "Chin": {
+      "Small": ["delicate", "subtle", "feminine taper"],
+      "Medium": ["balanced", "rounded", "classic shape"],
+      "Prominent": ["pronounced", "strong", "defined tip"]
+    },
+    "Descriptors": [
+      "symmetrical", "balanced", "expressive", "refined", "youthful tone", "soft shadows", "subtle texture"
+    ]
+  }
+}
