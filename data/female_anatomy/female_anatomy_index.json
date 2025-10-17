@@ -1,0 +1,14 @@
+{
+  "files": [
+    "biceps.json",
+    "shoulders.json",
+    "triceps.json",
+    "forearms.json",
+    "torso.json",
+    "neck.json",
+    "waist.json",
+    "hips.json",
+    "glutes.json",
+    "legs.json"
+  ]
+}
