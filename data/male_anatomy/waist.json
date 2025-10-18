@@ -1,0 +1,16 @@
+{
+  "Waist": {
+    "Size": {
+      "Narrow": ["slim", "tight", "compact"],
+      "Medium": ["balanced", "proportional", "average"],
+      "Wide": ["strong", "broad", "full"]
+    },
+    "Tone": {
+      "Soft": ["smooth lines", "minimal muscle definition"],
+      "Toned": ["moderate contours", "visible obliques"],
+      "Defined": ["sharp lines", "athletic definition", "prominent muscles"]
+    },
+    "Overall_Shapes": ["straight", "tapered", "athletic", "broad"],
+    "Descriptors_General": ["strong", "balanced", "athletic", "defined", "masculine"]
+  }
+}
