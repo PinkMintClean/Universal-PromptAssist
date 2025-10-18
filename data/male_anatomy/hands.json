@@ -1,0 +1,14 @@
+{
+  "Hands": {
+    "Size": {
+      "Small": ["compact", "slender", "delicate"],
+      "Medium": ["balanced", "proportional", "average"],
+      "Large": ["strong", "broad", "defined"]
+    },
+    "Shape": ["square", "long", "rectangular", "tapered"],
+    "Finger_Length": ["short", "medium", "long", "proportional"],
+    "Tone": ["soft", "toned", "defined"],
+    "Overall_Shapes": ["slender", "broad", "proportional", "muscular"],
+    "Descriptors_General": ["strong", "masculine", "balanced", "defined", "athletic"]
+  }
+}
