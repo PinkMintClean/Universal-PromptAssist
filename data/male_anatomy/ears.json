@@ -1,0 +1,13 @@
+{
+  "Ears": {
+    "Size": {
+      "Small": ["compact", "subtle", "close-set"],
+      "Medium": ["balanced", "proportional"],
+      "Large": ["prominent", "wide", "strong shape"]
+    },
+    "Shape": ["round", "oval", "angled", "pointed", "curved"],
+    "Lobes": ["attached", "detached", "medium"],
+    "Overall_Shapes": ["round", "oval", "angled", "pointed"],
+    "Descriptors_General": ["masculine", "proportional", "balanced", "defined", "strong"]
+  }
+}
