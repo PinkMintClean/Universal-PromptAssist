@@ -1,1 +1,18 @@
+{
+  "Feet": {
+    "Size": {
+      "Small": ["petite", "delicate", "compact", "narrow toes"],
+      "Medium": ["balanced", "proportional", "average length", "well-shaped"],
+      "Large": ["strong", "broad", "full", "pronounced arch"]
+    },
+    "Arch": {
+      "Low": ["flat", "gentle curve", "soft contour"],
+      "Medium": ["balanced arch", "moderate curve"],
+      "High": ["pronounced arch", "strong contour", "defined"]
+    },
+    "Toe_Length": ["short", "medium", "long", "proportional"],
+    "Overall_Shapes": ["slender", "rounded", "arched", "proportional", "compact"],
+    "Descriptors_General": ["elegant", "balanced", "graceful", "smooth", "defined"]
+  }
+}
 
