@@ -1,0 +1,16 @@
+{
+  "Neck": {
+    "Size": {
+      "Short": ["compact", "subtle", "sturdy"],
+      "Medium": ["balanced", "proportional", "average length"],
+      "Long": ["elongated", "strong presence", "well-defined"]
+    },
+    "Tone": {
+      "Soft": ["smooth skin", "minimal muscle definition"],
+      "Toned": ["visible contours", "moderate firmness"],
+      "Defined": ["prominent muscles", "well-defined trapezius and sternocleidomastoid"]
+    },
+    "Overall_Shapes": ["straight", "slightly curved", "thick", "elongated"],
+    "Descriptors_General": ["strong", "masculine", "balanced", "athletic", "defined"]
+  }
+}
