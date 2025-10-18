@@ -1,22 +1,26 @@
 {
   "Eyes": {
-    "Shape": {
-      "Small": ["narrow almond", "subtle", "soft", "gentle curve", "refined"],
-      "Medium": ["classic almond", "balanced", "average", "proportionate", "elegant"],
-      "Large": ["wide almond", "round", "open", "prominent", "expressive"]
+    "Size": {
+      "Small": {
+        "descriptors": ["narrow", "subtle", "delicate", "alert look"],
+        "shapes": ["almond", "slightly rounded"]
+      },
+      "Medium": {
+        "descriptors": ["balanced", "natural", "bright", "open appearance"],
+        "shapes": ["round", "almond"]
+      },
+      "Large": {
+        "descriptors": ["wide", "expressive", "bright", "doe-eyed"],
+        "shapes": ["round", "almond", "slightly upturned"]
+      }
     },
-    "Color": {
-      "Blue": [
-        "crystal ice", "arctic", "royal sapphire", "deep sapphire",
-        "sky blue", "ocean frost", "powder blue"
-      ],
-      "Green": [
-        "jade", "emerald", "forest green", "bright lime", "soft jade",
-        "seafoam", "mint"
-      ],
-      "Brown": [
-        "dark chocolate", "milk chocolate", "amber", "honey",
-        "caramel", "bronze", "hazel"
-      ],
-      "Gray": [
-        "storm gray", "steel", "silver mist", "slate", "ice
+    "Color": ["brown", "blue", "green", "hazel", "gray", "amber"],
+    "Tone": {
+      "Soft": ["gentle outline", "minimal eyelid crease", "youthful look"],
+      "Toned": ["visible eyelid fold", "moderate contour", "alert gaze"],
+      "Defined": ["sharp eye shape", "prominent eyelid crease", "intense gaze"]
+    },
+    "Overall_Shapes": ["almond", "round", "upturned", "downturned"],
+    "Descriptors_General": ["expressive", "sparkling", "luminous", "alert", "symmetrical"]
+  }
+}
