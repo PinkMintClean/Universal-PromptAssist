@@ -1,0 +1,14 @@
+{
+  "Eyes": {
+    "Size": {
+      "Small": ["narrow", "subtle", "compact"],
+      "Medium": ["balanced", "average proportion"],
+      "Large": ["wide", "prominent", "expressive"]
+    },
+    "Shape": ["almond", "round", "deep-set", "hooded", "droopy"],
+    "Color": ["brown", "blue", "green", "hazel", "gray"],
+    "Brows": ["thin", "medium", "thick", "arched", "straight"],
+    "Overall_Shapes": ["almond", "round", "deep-set", "hooded"],
+    "Descriptors_General": ["expressive", "balanced", "strong", "alert", "masculine"]
+  }
+}
