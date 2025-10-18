@@ -2,23 +2,24 @@
   "Head": {
     "Size": {
       "Small": {
-        "descriptors": ["petite", "delicate", "narrow", "soft-featured"],
+        "descriptors": ["petite", "delicate", "narrow", "soft-featured", "compact skull"],
         "shapes": ["oval", "slightly pointed", "compact"]
       },
       "Medium": {
-        "descriptors": ["balanced", "proportional", "average", "natural"],
+        "descriptors": ["balanced", "proportional", "average", "natural", "soft contour"],
         "shapes": ["oval", "round", "symmetrical"]
       },
       "Large": {
-        "descriptors": ["full", "rounded", "strong jawline", "dominant features"],
+        "descriptors": ["full", "rounded", "strong jawline", "dominant features", "broad forehead"],
         "shapes": ["round", "broad", "angular"]
       }
     },
-    "Shape": {
-      "Oval": ["soft curves", "classic oval"],
-      "Round": ["full cheeks", "smooth contours"],
-      "Square": ["defined jaw", "strong structure"]
+    "Tone": {
+      "Soft": ["smooth skin", "minimal bone prominence", "youthful look"],
+      "Toned": ["slightly angular", "subtle definition of skull"],
+      "Defined": ["prominent cheekbones", "strong jawline", "distinct contour"]
     },
-    "Descriptors_General": ["balanced", "proportional", "elegant", "smooth"]
+    "Overall_Shapes": ["oval", "round", "square", "heart-shaped", "diamond-shaped"],
+    "Descriptors_General": ["balanced", "proportional", "elegant", "smooth", "symmetrical"]
   }
 }
