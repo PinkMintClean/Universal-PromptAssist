@@ -1,1 +1,19 @@
+{
+  "Shoulders": {
+    "Size": {
+      "Narrow": ["slim", "compact", "subtle slope"],
+      "Medium": ["balanced", "proportional", "moderate width"],
+      "Wide": ["broad", "strong", "prominent"],
+      "Muscular": ["well-defined deltoids", "athletic", "strong contour"]
+    },
+    "Slope": ["flat", "slightly sloped", "angled", "rounded"],
+    "Muscle_Tone": {
+      "Soft": ["minimal definition", "gentle curves"],
+      "Toned": ["visible contours", "moderate shape"],
+      "Defined": ["sharp muscle separation", "prominent deltoids", "athletic"]
+    },
+    "Overall_Shapes": ["rounded", "angular", "broad", "tapered"],
+    "Descriptors_General": ["strong", "athletic", "balanced", "defined", "masculine"]
+  }
+}
 
