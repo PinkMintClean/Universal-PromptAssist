@@ -1,0 +1,17 @@
+{
+  "Triceps": {
+    "Size": {
+      "Small": ["slender", "lightly toned", "compact"],
+      "Medium": ["balanced", "moderately defined", "smooth contour"],
+      "Large": ["full", "muscular", "pronounced"],
+      "Muscular": ["well-defined", "sculpted", "strong outline", "athletic"]
+    },
+    "Tone": {
+      "Soft": ["gentle curve", "minimal separation"],
+      "Toned": ["visible outline", "moderate muscle definition"],
+      "Defined": ["sharp contour", "prominent muscle", "athletic"]
+    },
+    "Overall_Shapes": ["straight", "rounded", "bulged", "tapered", "angular", "peaked"],
+    "Descriptors_General": ["athletic", "strong", "defined", "balanced", "masculine"]
+  }
+}
