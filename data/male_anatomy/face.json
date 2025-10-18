@@ -1,0 +1,22 @@
+{
+  "Face": {
+    "Size": {
+      "Small": ["compact features", "slender", "delicate"],
+      "Medium": ["balanced", "proportional", "average"],
+      "Large": ["broad", "strong jaw", "prominent"]
+    },
+    "Jawline": {
+      "Soft": ["rounded", "subtle contours"],
+      "Toned": ["moderately angular", "defined chin"],
+      "Strong": ["square jaw", "prominent angles", "athletic"]
+    },
+    "Cheekbones": {
+      "Low": ["minimal prominence", "soft contours"],
+      "Medium": ["moderate definition", "balanced look"],
+      "High": ["pronounced", "sharp", "chiseled"]
+    },
+    "Nose": ["straight", "aquiline", "broad", "pointed", "rounded"],
+    "Overall_Shapes": ["oval", "square", "rectangular", "round"],
+    "Descriptors_General": ["masculine", "strong", "angular", "defined", "balanced"]
+  }
+}
