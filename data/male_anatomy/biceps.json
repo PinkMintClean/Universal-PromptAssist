@@ -1,1 +1,23 @@
+{
+  "Biceps": {
+    "Size": {
+      "Small": ["slender", "lightly toned", "compact"],
+      "Medium": ["balanced", "moderately defined", "natural shape"],
+      "Large": ["full", "rounded", "pronounced"],
+      "Muscular": ["well-defined", "sculpted", "vascular", "athletic"]
+    },
+    "Tone": {
+      "Soft": ["smooth", "minimal definition"],
+      "Toned": ["visible outline", "light muscle distinction"],
+      "Defined": ["strong peak", "clear separation", "athletic form"]
+    },
+    "Peak_Height": {
+      "Low": ["flat contour", "minimal bulge"],
+      "Medium": ["gentle slope", "balanced rise"],
+      "High": ["sharp peak", "prominent definition"]
+    },
+    "Overall_Shapes": ["straight", "rounded", "bulged", "tapered", "angular", "peaked"],
+    "Descriptors_General": ["balanced", "athletic", "strong", "defined", "smooth"]
+  }
+}
 
