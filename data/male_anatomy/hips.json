@@ -1,0 +1,16 @@
+{
+  "Hips": {
+    "Size": {
+      "Narrow": ["slim", "subtle", "compact"],
+      "Medium": ["balanced", "proportional"],
+      "Wide": ["strong", "broad", "prominent"]
+    },
+    "Tone": {
+      "Soft": ["smooth contour", "minimal definition"],
+      "Toned": ["moderate muscle separation", "visible outline"],
+      "Defined": ["sharp contours", "athletic", "prominent"]
+    },
+    "Overall_Shapes": ["straight", "broad", "tapered", "muscular"],
+    "Descriptors_General": ["strong", "balanced", "athletic", "defined", "masculine"]
+  }
+}
