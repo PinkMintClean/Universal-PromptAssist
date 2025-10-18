@@ -1,0 +1,17 @@
+{
+  "Forearms": {
+    "Size": {
+      "Small": ["slender", "compact", "lightly toned"],
+      "Medium": ["balanced", "proportional", "moderate muscle"],
+      "Large": ["full", "muscular", "strong contour"],
+      "Muscular": ["defined", "veined", "athletic", "sculpted"]
+    },
+    "Tone": {
+      "Soft": ["smooth", "minimal definition"],
+      "Toned": ["visible muscle separation", "moderate firmness"],
+      "Defined": ["high definition", "vascular", "sharp contours"]
+    },
+    "Overall_Shapes": ["straight", "bulged", "tapered", "rounded", "angular"],
+    "Descriptors_General": ["strong", "athletic", "balanced", "defined", "masculine"]
+  }
+}
