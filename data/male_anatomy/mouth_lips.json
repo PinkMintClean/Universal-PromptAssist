@@ -1,0 +1,17 @@
+{
+  "Mouth_Lips": {
+    "Size": {
+      "Thin": ["subtle", "narrow", "compact"],
+      "Medium": ["balanced", "proportional", "moderate fullness"],
+      "Full": ["pronounced", "plump", "strong shape"]
+    },
+    "Shape": ["straight", "curved", "bowed", "wide", "narrow"],
+    "Tone": {
+      "Soft": ["minimal lines", "smooth texture"],
+      "Toned": ["moderate contour", "defined edges"],
+      "Defined": ["strong lip outline", "prominent shape"]
+    },
+    "Overall_Shapes": ["straight", "curved", "bowed", "wide", "narrow"],
+    "Descriptors_General": ["masculine", "balanced", "strong", "defined", "expressive"]
+  }
+}
