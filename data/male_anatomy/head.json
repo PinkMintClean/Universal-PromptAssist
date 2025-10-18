@@ -1,0 +1,18 @@
+{
+  "Head": {
+    "Size": {
+      "Small": ["compact", "narrow skull", "delicate features"],
+      "Medium": ["balanced", "proportional", "average shape"],
+      "Large": ["broad", "prominent skull", "strong features"]
+    },
+    "Shape": {
+      "Round": ["soft curves", "balanced proportions"],
+      "Oval": ["slightly elongated", "natural contour"],
+      "Square": ["defined jawline", "angular features"],
+      "Rectangular": ["elongated skull", "strong structure"]
+    },
+    "Hairline": ["low", "medium", "high", "receding", "straight", "widow's peak"],
+    "Overall_Shapes": ["round", "oval", "square", "rectangular"],
+    "Descriptors_General": ["strong", "balanced", "masculine", "defined", "angular"]
+  }
+}
