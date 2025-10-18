@@ -1,24 +1,27 @@
-// ===== Minimal Stable Automatic Glossary Loader =====
-// This file intentionally keeps UI/selection out of scope.
-// It only loads JSON and calls initGlossary(glossary).
+// glossary.js — Automatic Loader for Female & Male Anatomy
 
+// Safe JSON fetch
 async function safeFetchJson(path) {
   try {
     const res = await fetch(path);
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.warn("Failed to fetch:", path, res.status);
+      return null;
+    }
     return await res.json();
   } catch (e) {
-    console.warn("Fetch failed:", path, e);
+    console.warn("Fetch error:", path, e);
     return null;
   }
 }
 
+// Load a group (e.g., Female Anatomy) from index.json
 async function loadGroup(indexPath, basePath, groupName) {
   const groupResult = { group: groupName, categories: [] };
 
   const index = await safeFetchJson(indexPath);
   if (!index || !Array.isArray(index.files)) {
-    console.warn("Index missing or invalid:", indexPath);
+    console.warn("Invalid or missing index:", indexPath);
     return groupResult;
   }
 
@@ -26,12 +29,11 @@ async function loadGroup(indexPath, basePath, groupName) {
     const filePath = basePath + fname;
     const json = await safeFetchJson(filePath);
     if (!json) {
-      // silently skip missing/invalid files
-      console.warn("Skipped file (missing/invalid):", filePath);
+      console.warn("Skipped missing/invalid file:", filePath);
       continue;
     }
 
-    // Expect each file to be an object like { "Biceps": { ... } }
+    // Expect each file to be { "BodyPart": { ... } }
     Object.keys(json).forEach(key => {
       const part = json[key];
       const sections = [];
@@ -56,30 +58,41 @@ async function loadGroup(indexPath, basePath, groupName) {
   return groupResult;
 }
 
+// Load all groups and initialize
 async function loadGlossary() {
   const base = "./data/";
   const groups = [
-    { name: "Female Anatomy", index: base + "female_anatomy/female_anatomy_index.json", basePath: base + "female_anatomy/" },
-    { name: "Male Anatomy",   index: base + "male_anatomy/male_anatomy_index.json",     basePath: base + "male_anatomy/" }
+    {
+      name: "Female Anatomy",
+      index: base + "female_anatomy/female_anatomy_index.json",
+      basePath: base + "female_anatomy/"
+    },
+    {
+      name: "Male Anatomy",
+      index: base + "male_anatomy/male_anatomy_index.json",
+      basePath: base + "male_anatomy/"
+    }
   ];
 
-  const final = [];
+  const finalGlossary = [];
 
   for (const g of groups) {
     const groupData = await loadGroup(g.index, g.basePath, g.name);
-    final.push(groupData);
+    finalGlossary.push(groupData);
   }
 
-  console.log("Glossary loader: loaded groups:", final);
+  console.log("✅ Glossary loaded:", finalGlossary);
+
   if (typeof initGlossary === "function") {
     try {
-      initGlossary(final);
+      initGlossary(finalGlossary);
     } catch (e) {
-      console.error("initGlossary threw:", e);
+      console.error("initGlossary threw an error:", e);
     }
   } else {
     console.error("initGlossary not found. Ensure script.js defines it and is loaded after glossary.js");
   }
 }
 
+// Load on DOM ready
 document.addEventListener("DOMContentLoaded", loadGlossary);
