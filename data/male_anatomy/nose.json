@@ -1,0 +1,14 @@
+{
+  "Nose": {
+    "Size": {
+      "Small": ["subtle", "compact", "slender"],
+      "Medium": ["balanced", "proportional"],
+      "Large": ["prominent", "broad", "strong profile"]
+    },
+    "Bridge": ["straight", "curved", "flat", "prominent"],
+    "Tip": ["rounded", "pointed", "wide", "narrow"],
+    "Nostrils": ["small", "medium", "flared"],
+    "Overall_Shapes": ["straight", "curved", "flat", "broad"],
+    "Descriptors_General": ["strong", "masculine", "balanced", "defined", "proportional"]
+  }
+}
