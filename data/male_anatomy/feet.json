@@ -1,0 +1,14 @@
+{
+  "Feet": {
+    "Size": {
+      "Small": ["compact", "slender", "proportional"],
+      "Medium": ["balanced", "average length", "moderate width"],
+      "Large": ["strong", "broad", "prominent"]
+    },
+    "Shape": ["slender", "wide", "arched", "flat", "tapered"],
+    "Toes": ["short", "medium", "long", "aligned", "slightly spread"],
+    "Tone": ["soft", "toned", "defined"],
+    "Overall_Shapes": ["slender", "broad", "proportional", "muscular"],
+    "Descriptors_General": ["strong", "balanced", "athletic", "defined", "masculine"]
+  }
+}
