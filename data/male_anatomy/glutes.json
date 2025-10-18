@@ -1,0 +1,16 @@
+{
+  "Glutes": {
+    "Size": {
+      "Small": ["compact", "slight curvature", "lightly toned"],
+      "Medium": ["balanced", "moderate roundness", "proportional"],
+      "Large": ["full", "muscular", "pronounced", "athletic"]
+    },
+    "Tone": {
+      "Soft": ["smooth contour", "minimal separation"],
+      "Toned": ["visible outline", "moderate definition"],
+      "Defined": ["sharp contours", "prominent muscle", "athletic"]
+    },
+    "Overall_Shapes": ["rounded", "bulged", "tapered", "muscular"],
+    "Descriptors_General": ["strong", "athletic", "balanced", "defined", "masculine"]
+  }
+}
