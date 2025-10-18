@@ -1,0 +1,41 @@
+{
+  "micro_features": {
+    "Eyes": {
+      "Shape": ["almond", "round", "narrow", "upturned", "downturned", "hooded", "deep-set"],
+      "Size": ["tiny", "small", "medium", "large", "prominent", "oversized"],
+      "Color": {
+        "Blue": ["ice", "sky", "sapphire", "royal", "navy"],
+        "Green": ["emerald", "jade", "olive", "pale", "bright"],
+        "Brown": ["chocolate", "hazel", "amber", "coffee", "golden"],
+        "Gray": ["pale", "steel", "storm", "silver"],
+        "Other": ["violet", "heterochromia", "golden"]
+      },
+      "Expression": ["piercing", "soft", "gentle", "intense", "focused", "kind"]
+    },
+    "Eyebrows": {
+      "Shape": ["arched", "straight", "angled", "curved", "rounded", "thin", "thick"],
+      "Color": ["black", "brown", "blonde", "red", "gray", "dyed"],
+      "Texture": ["sparse", "medium", "dense", "groomed", "unruly"],
+      "Descriptors": ["sharp", "soft", "masculine", "feminine", "youthful"]
+    },
+    "Nose": {
+      "Shape": ["straight", "aquiline", "button", "broad", "flat", "concave", "convex"],
+      "Size": ["tiny", "small", "medium", "large", "prominent"],
+      "Bridge": ["low", "medium", "high"],
+      "Nostrils": ["narrow", "flared", "round", "slit"],
+      "Descriptors": ["strong", "delicate", "defined", "masculine", "feminine"]
+    },
+    "Mouth & Lips": {
+      "Shape": ["heart-shaped", "bowed", "round", "straight", "thin", "full"],
+      "Size": ["small", "medium", "large", "plump"],
+      "Lip Line": ["defined", "soft", "natural", "enhanced"],
+      "Descriptors": ["expressive", "sensual", "youthful", "feminine", "masculine"]
+    },
+    "Cheeks": {
+      "Bone Structure": ["high", "moderate", "low", "prominent", "soft"],
+      "Fullness": ["sunken", "flat", "moderate", "plump"],
+      "Descriptors": ["rosy", "gaunt", "sculpted", "rounded", "defined"]
+    },
+    "Jaw & Chin": {
+      "Jawline": ["square", "rounded", "angular", "tapered", "defined"],
+      "Chi
