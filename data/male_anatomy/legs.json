@@ -1,0 +1,12 @@
+{
+  "Legs": {
+    "Size": {
+      "Thin": ["slender", "long", "delicate"],
+      "Medium": ["balanced", "proportional", "moderately toned"],
+      "Thick": ["muscular", "full", "strong", "defined"],
+      "Muscular": ["athletic", "sculpted", "prominent", "powerful"]
+    },
+    "Tone": {
+      "Soft": ["smooth lines", "minimal definition"],
+      "Toned": ["moderate muscle separation", "visible contours"],
+      "Defined": ["sharp definition", "
