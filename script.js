@@ -6,38 +6,52 @@ const selected = new Set();
 
 // ===== Initialize Glossary Display =====
 function initGlossary(glossary) {
+  const container = document.querySelector("#featureList");
   container.innerHTML = "";
 
-  glossary.forEach(category => {
-    const section = document.createElement("div");
-    section.className = "subcat";
+  glossary.forEach(group => {
+    // Create a large group panel (e.g. Female Anatomy)
+    const groupPanel = document.createElement("div");
+    groupPanel.className = "category-group glass-panel";
 
-    const title = document.createElement("h4");
-    title.textContent = category.category || "Unnamed Category";
-    section.appendChild(title);
+    const groupTitle = document.createElement("h2");
+    groupTitle.textContent = group.category || "Unnamed Group";
+    groupPanel.appendChild(groupTitle);
 
-    if (category.sections) {
-      category.sections.forEach(sub => {
-        const subTitle = document.createElement("h5");
-        subTitle.textContent = sub.title;
-        section.appendChild(subTitle);
+    // Each anatomy part inside
+    group.sections.forEach(category => {
+      const section = document.createElement("div");
+      section.className = "category-block";
 
-        const featureBox = document.createElement("div");
-        featureBox.className = "item-container";
+      const title = document.createElement("h3");
+      title.textContent = category.category || "Unnamed Category";
+      section.appendChild(title);
 
-        sub.features.forEach(feature => {
-          const item = document.createElement("span");
-          item.className = "feature-pill";
-          item.textContent = feature;
-          item.onclick = () => toggleFeature(item, feature);
-          featureBox.appendChild(item);
+      if (category.sections) {
+        category.sections.forEach(sub => {
+          const subTitle = document.createElement("h4");
+          subTitle.textContent = sub.title;
+          section.appendChild(subTitle);
+
+          const featureBox = document.createElement("div");
+          featureBox.className = "item-container";
+
+          sub.features.forEach(feature => {
+            const item = document.createElement("span");
+            item.className = "feature-pill";
+            item.textContent = feature;
+            item.onclick = () => toggleFeature(item, feature);
+            featureBox.appendChild(item);
+          });
+
+          section.appendChild(featureBox);
         });
+      }
 
-        section.appendChild(featureBox);
-      });
-    }
+      groupPanel.appendChild(section);
+    });
 
-    container.appendChild(section);
+    container.appendChild(groupPanel);
   });
 }
 
