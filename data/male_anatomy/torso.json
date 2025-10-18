@@ -1,1 +1,18 @@
+{
+  "Torso": {
+    "Size": {
+      "Small": ["slender", "compact", "delicate"],
+      "Medium": ["balanced", "proportional", "moderate definition"],
+      "Large": ["full", "broad", "strong presence"],
+      "Muscular": ["athletic", "defined", "sculpted", "prominent chest and back"]
+    },
+    "Tone": {
+      "Soft": ["smooth lines", "minimal definition"],
+      "Toned": ["visible contours", "moderate firmness"],
+      "Defined": ["sharp definition", "prominent muscles", "athletic"]
+    },
+    "Overall_Shapes": ["straight", "hourglass", "athletic", "broad", "tapered"],
+    "Descriptors_General": ["strong", "athletic", "balanced", "defined", "masculine"]
+  }
+}
 
