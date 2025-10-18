@@ -135,26 +135,5 @@ function initGlossary(glossaryData) {
   });
 }
 
-// ===== Prompt Feature Handling =====
-const selected = new Set();
-
-function toggleFeature(el, feature) {
-  if (selected.has(feature)) {
-    selected.delete(feature);
-    el.classList.remove("selected");
-  } else {
-    selected.add(feature);
-    el.classList.add("selected");
-  }
-  updatePrompt();
-}
-
-function updatePrompt() {
-  const promptBox =
-    document.querySelector("#promptBox") ||
-    document.createElement("textarea");
-  promptBox.value = Array.from(selected).join(", ");
-}
-
 // ===== Init =====
 document.addEventListener("DOMContentLoaded", loadGlossary);
