@@ -1,56 +1,17 @@
 {
   "Hands": {
     "Size": {
-      "Small": {
-        "descriptors": [
-          "delicate", "petite", "narrow palm", "slender fingers", "refined"
-        ],
-        "shapes": [
-          "oval palm", "tapered fingers", "slim frame"
-        ]
-      },
-      "Medium": {
-        "descriptors": [
-          "balanced", "proportional", "graceful", "smooth contours", "moderate width"
-        ],
-        "shapes": [
-          "classic oval", "slightly rounded", "tapered fingertips"
-        ]
-      },
-      "Large": {
-        "descriptors": [
-          "broad", "sturdy", "strong fingers", "long palm", "firm grip"
-        ],
-        "shapes": [
-          "broad palm", "square base", "elongated fingers"
-        ]
-      }
+      "Small": ["petite", "slender", "delicate", "compact fingers"],
+      "Medium": ["balanced", "proportional", "average length", "natural contour"],
+      "Large": ["strong", "full", "broad", "prominent knuckles"]
     },
-    "Finger_Length": {
-      "Short": ["compact", "stubby", "soft knuckles", "gentle curve"],
-      "Medium": ["proportional", "balanced", "smooth joint structure", "refined motion"],
-      "Long": ["elegant", "tapered", "graceful", "expressive movement"]
+    "Tone": {
+      "Soft": ["smooth skin", "minimal veins", "gentle contour"],
+      "Toned": ["visible veins", "moderate muscle outline"],
+      "Defined": ["prominent tendons", "muscular definition", "well-structured"]
     },
-    "Finger_Shape": {
-      "Tapered": ["narrow tip", "graceful slope", "smooth transition"],
-      "Rounded": ["soft ends", "natural curve", "gentle silhouette"],
-      "Angular": ["strong joints", "defined ridges", "athletic build"]
-    },
-    "Knuckles": {
-      "Soft": ["smooth transition", "barely visible joints", "gentle lines"],
-      "Defined": ["visible ridge", "slight bump", "structured outline"],
-      "Pronounced": ["strong joints", "firm contour", "noticeable articulation"]
-    },
-    "Texture": {
-      "Smooth": ["silky", "fine skin", "soft touch", "light detail"],
-      "Natural": ["balanced tone", "gentle creases", "moderate lines"],
-      "Detailed": ["visible veins", "defined tendons", "slight texture", "firm surface"]
-    },
-    "Overall_Shapes": [
-      "oval palm", "broad palm", "square base", "tapered fingers", "slightly rounded"
-    ],
-    "Descriptors_General": [
-      "graceful", "refined", "elegant", "balanced", "athletic", "delicate", "expressive"
-    ]
+    "Finger_Length": ["short", "medium", "long", "proportional"],
+    "Overall_Shapes": ["slender", "compact", "tapered", "muscular"],
+    "Descriptors_General": ["elegant", "graceful", "strong", "balanced", "defined"]
   }
 }
