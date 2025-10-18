@@ -1,139 +1,85 @@
-// ===== Universal PromptAssist — Automatic Glossary Loader =====
+// ===== Minimal Stable Automatic Glossary Loader =====
+// This file intentionally keeps UI/selection out of scope.
+// It only loads JSON and calls initGlossary(glossary).
 
-let glossary = [];
+async function safeFetchJson(path) {
+  try {
+    const res = await fetch(path);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) {
+    console.warn("Fetch failed:", path, e);
+    return null;
+  }
+}
 
-// ===== Load Glossary Groups (Female + Male Anatomy) =====
-async function loadGlossary() {
-  const anatomyGroups = [
-    {
-      name: "Female Anatomy",
-      indexPath: "./data/female_anatomy/female_anatomy_index.json",
-      basePath: "./data/female_anatomy/"
-    },
-    {
-      name: "Male Anatomy",
-      indexPath: "./data/male_anatomy/male_anatomy_index.json",
-      basePath: "./data/male_anatomy/"
-    }
-  ];
+async function loadGroup(indexPath, basePath, groupName) {
+  const groupResult = { group: groupName, categories: [] };
 
-  const glossaryArray = [];
-
-  for (const group of anatomyGroups) {
-    try {
-      const indexRes = await fetch(group.indexPath);
-      if (!indexRes.ok) throw new Error(`Could not load ${group.indexPath}`);
-      const indexData = await indexRes.json();
-
-      console.log(`📁 Loading ${group.name} from ${group.indexPath}`);
-
-      const groupSections = [];
-
-      for (const file of indexData.files) {
-        const filePath = group.basePath + file;
-        try {
-          const res = await fetch(filePath);
-          if (!res.ok) throw new Error(`Could not load ${filePath}`);
-          const json = await res.json();
-
-          Object.keys(json).forEach(key => {
-            const part = json[key];
-            const sections = [];
-
-            if (part.Size)
-              sections.push({ title: "Size", features: Object.keys(part.Size) });
-            if (part.Tone)
-              sections.push({ title: "Tone", features: Object.keys(part.Tone) });
-            if (part.Peak_Height)
-              sections.push({
-                title: "Peak Height",
-                features: Object.keys(part.Peak_Height)
-              });
-            if (part.Overall_Shapes)
-              sections.push({
-                title: "Overall Shapes",
-                features: part.Overall_Shapes
-              });
-            if (part.Descriptors_General)
-              sections.push({
-                title: "General Descriptors",
-                features: part.Descriptors_General
-              });
-
-            groupSections.push({ category: key, sections });
-          });
-        } catch (err) {
-          console.warn(`⚠️ Skipped file (invalid JSON or missing): ${filePath}`);
-        }
-      }
-
-      glossaryArray.push({ group: group.name, categories: groupSections });
-    } catch (err) {
-      console.error(`❌ Could not load ${group.indexPath}:`, err);
-    }
+  const index = await safeFetchJson(indexPath);
+  if (!index || !Array.isArray(index.files)) {
+    console.warn("Index missing or invalid:", indexPath);
+    return groupResult;
   }
 
-  glossary = glossaryArray;
-  console.log("✅ Glossary loaded successfully:", glossary);
+  for (const fname of index.files) {
+    const filePath = basePath + fname;
+    const json = await safeFetchJson(filePath);
+    if (!json) {
+      // silently skip missing/invalid files
+      console.warn("Skipped file (missing/invalid):", filePath);
+      continue;
+    }
 
-  if (typeof initGlossary === "function") initGlossary(glossary);
-}
+    // Expect each file to be an object like { "Biceps": { ... } }
+    Object.keys(json).forEach(key => {
+      const part = json[key];
+      const sections = [];
 
-// ===== Display Glossary Dynamically =====
-function initGlossary(glossaryData) {
-  const container = document.querySelector("#featureList") || document.querySelector("#subcategories");
-  if (!container) return;
-  container.innerHTML = "";
+      if (part && typeof part === "object") {
+        if (part.Size && typeof part.Size === "object")
+          sections.push({ title: "Size", features: Object.keys(part.Size) });
+        if (part.Tone && typeof part.Tone === "object")
+          sections.push({ title: "Tone", features: Object.keys(part.Tone) });
+        if (part.Peak_Height && typeof part.Peak_Height === "object")
+          sections.push({ title: "Peak Height", features: Object.keys(part.Peak_Height) });
+        if (Array.isArray(part.Overall_Shapes))
+          sections.push({ title: "Overall Shapes", features: part.Overall_Shapes });
+        if (Array.isArray(part.Descriptors_General))
+          sections.push({ title: "General Descriptors", features: part.Descriptors_General });
+      }
 
-  glossaryData.forEach(group => {
-    const groupBox = document.createElement("div");
-    groupBox.className = "subcat glass-panel";
-    groupBox.style.marginBottom = "20px";
-
-    const groupTitle = document.createElement("h2");
-    groupTitle.textContent = group.group;
-    groupBox.appendChild(groupTitle);
-
-    group.categories.forEach(cat => {
-      const catBox = document.createElement("div");
-      catBox.className = "subcat-inner";
-      catBox.style.margin = "10px 0";
-      catBox.style.padding = "12px";
-      catBox.style.border = "1px solid rgba(255,255,255,0.08)";
-      catBox.style.borderRadius = "10px";
-
-      const catTitle = document.createElement("h3");
-      catTitle.textContent = cat.category;
-      catBox.appendChild(catTitle);
-
-      cat.sections.forEach(section => {
-        const sec = document.createElement("div");
-        sec.className = "feature-section";
-        const secTitle = document.createElement("h4");
-        secTitle.textContent = section.title;
-        sec.appendChild(secTitle);
-
-        const featureBox = document.createElement("div");
-        featureBox.className = "item-container";
-
-        section.features.forEach(f => {
-          const pill = document.createElement("span");
-          pill.className = "feature-pill";
-          pill.textContent = f;
-          pill.onclick = () => toggleFeature(pill, f);
-          featureBox.appendChild(pill);
-        });
-
-        sec.appendChild(featureBox);
-        catBox.appendChild(sec);
-      });
-
-      groupBox.appendChild(catBox);
+      groupResult.categories.push({ category: key, sections });
     });
+  }
 
-    container.appendChild(groupBox);
-  });
+  return groupResult;
 }
 
-// ===== Init =====
+async function loadGlossary() {
+  const base = "./data/";
+  const groups = [
+    { name: "Female Anatomy", index: base + "female_anatomy/female_anatomy_index.json", basePath: base + "female_anatomy/" },
+    { name: "Male Anatomy",   index: base + "male_anatomy/male_anatomy_index.json",     basePath: base + "male_anatomy/" }
+  ];
+
+  const final = [];
+
+  for (const g of groups) {
+    const groupData = await loadGroup(g.index, g.basePath, g.name);
+    final.push(groupData);
+  }
+
+  console.log("Glossary loader: loaded groups:", final);
+  if (typeof initGlossary === "function") {
+    try {
+      initGlossary(final);
+    } catch (e) {
+      console.error("initGlossary threw:", e);
+    }
+  } else {
+    console.error("initGlossary not found. Ensure script.js defines it and is loaded after glossary.js");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", loadGlossary);
