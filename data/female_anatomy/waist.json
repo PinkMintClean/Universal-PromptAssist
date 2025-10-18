@@ -1,0 +1,16 @@
+{
+  "Waist": {
+    "Size": {
+      "Narrow": ["slim", "tight", "delicate", "graceful curve"],
+      "Medium": ["balanced", "proportional", "moderate contour"],
+      "Wide": ["strong", "rounded", "full", "curvaceous"]
+    },
+    "Tone": {
+      "Soft": ["smooth skin", "minimal definition", "gentle contour"],
+      "Toned": ["visible obliques", "moderate muscle definition"],
+      "Defined": ["prominent abdominal lines", "sharp contour", "athletic"]
+    },
+    "Overall_Shapes": ["slender", "hourglass", "straight", "curved"],
+    "Descriptors_General": ["elegant", "graceful", "balanced", "defined", "smooth"]
+  }
+}
