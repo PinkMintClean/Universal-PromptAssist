@@ -1,23 +1,25 @@
 {
   "Nose": {
-    "Shape": {
-      "Small": ["button", "petite", "upturned", "delicate", "tiny slope"],
-      "Medium": ["classic straight", "balanced", "slight curve", "refined", "elegant"],
-      "Large": ["prominent", "aquiline", "strong bridge", "defined", "angular"]
+    "Size": {
+      "Small": {
+        "descriptors": ["delicate", "petite", "soft bridge", "subtle tip"],
+        "shapes": ["button", "slight curve", "narrow bridge"]
+      },
+      "Medium": {
+        "descriptors": ["balanced", "proportional", "smooth contour", "average size"],
+        "shapes": ["straight", "slight curve", "soft bridge"]
+      },
+      "Large": {
+        "descriptors": ["prominent", "defined", "strong bridge", "angular tip"],
+        "shapes": ["straight", "aquiline", "broad"]
+      }
     },
-    "Bridge": {
-      "Low": ["soft slope", "gentle contour", "flat bridge", "subtle rise"],
-      "Medium": ["natural slope", "balanced rise", "classic contour", "smooth bridge"],
-      "High": ["prominent", "sharp ridge", "defined contour", "pronounced"]
+    "Tone": {
+      "Soft": ["rounded tip", "smooth nostrils", "minimal prominence"],
+      "Toned": ["subtle bridge definition", "slight tip projection"],
+      "Defined": ["sharp bridge", "pronounced tip", "distinct nostrils"]
     },
-    "Tip": {
-      "Rounded": ["soft", "smooth", "balanced", "gentle"],
-      "Pointed": ["sharp", "refined", "elegant", "narrow"],
-      "Flat": ["broad", "low", "gentle curve", "subtle end"]
-    },
-    "Nostril": ["narrow", "refined", "flared", "subtle flare", "delicate"],
-    "Descriptors": [
-      "symmetrical", "refined", "graceful", "natural", "distinct", "softly feminine", "balanced"
-    ]
+    "Overall_Shapes": ["straight", "aquiline", "button", "slight curve", "broad"],
+    "Descriptors_General": ["refined", "symmetrical", "balanced", "proportional", "smooth"]
   }
 }
