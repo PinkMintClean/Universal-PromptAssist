@@ -1,0 +1,17 @@
+{
+  "Arms": {
+    "Size": {
+      "Small": ["slender", "compact", "delicate definition"],
+      "Medium": ["balanced", "proportional", "moderate definition"],
+      "Large": ["full", "muscular", "pronounced contours"],
+      "Muscular": ["well-defined", "strong", "sculpted", "vascular"]
+    },
+    "Tone": {
+      "Soft": ["smooth lines", "minimal muscle separation"],
+      "Toned": ["visible outline", "moderate definition"],
+      "Defined": ["sharp peak", "high definition", "athletic form"]
+    },
+    "Overall_Shapes": ["straight", "tapered", "bulged", "rounded", "angular"],
+    "Descriptors_General": ["strong", "balanced", "athletic", "defined", "masculine"]
+  }
+}
