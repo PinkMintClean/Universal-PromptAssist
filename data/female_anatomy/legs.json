@@ -1,0 +1,17 @@
+{
+  "Legs": {
+    "Size": {
+      "Thin": ["slender", "delicate", "long", "graceful"],
+      "Medium": ["balanced", "proportional", "moderately toned"],
+      "Thick": ["full", "muscular", "strong", "defined"],
+      "Muscular": ["athletic", "well-defined", "powerful", "sculpted"]
+    },
+    "Tone": {
+      "Soft": ["smooth contour", "minimal muscle separation"],
+      "Toned": ["visible lines", "moderate firmness", "slight muscle curves"],
+      "Defined": ["sharp definition", "prominent quads and calves", "athletic"]
+    },
+    "Overall_Shapes": ["slender", "straight", "tapered", "rounded", "muscular"],
+    "Descriptors_General": ["balanced", "graceful", "athletic", "smooth", "defined"]
+  }
+}
