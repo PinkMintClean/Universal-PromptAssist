@@ -1,109 +1,16 @@
 {
   "Arms": {
-    "Upper_Arms": {
-      "Size": {
-        "Slim": {
-          "descriptors": [
-            "slender", "delicate", "narrow", "toned lightly", "graceful"
-          ],
-          "shapes": [
-            "straight", "slightly curved", "tapered"
-          ]
-        },
-        "Average": {
-          "descriptors": [
-            "balanced", "natural tone", "moderate width", "soft curve", "smooth contour"
-          ],
-          "shapes": [
-            "oval", "slightly rounded", "natural line"
-          ]
-        },
-        "Full": {
-          "descriptors": [
-            "curvy", "softly voluminous", "rounded", "full-bodied", "pronounced"
-          ],
-          "shapes": [
-            "rounded", "dramatic curve", "ample"
-          ]
-        },
-        "Muscular": {
-          "descriptors": [
-            "defined", "firm", "athletic", "pronounced biceps", "visible tone"
-          ],
-          "shapes": [
-            "contoured", "angular", "defined curvature"
-          ]
-        }
-      },
-      "Tone": {
-        "Soft": [
-          "smooth", "gentle", "minimal definition", "feminine texture"
-        ],
-        "Toned": [
-          "light muscle visibility", "fit appearance", "healthy definition", "balanced firmness"
-        ],
-        "Defined": [
-          "strongly contoured", "visible bicep separation", "athletic finish", "firm"
-        ]
-      },
-      "Overall_Shapes": [
-        "straight", "oval", "rounded", "contoured", "tapered", "defined curve"
-      ]
+    "Size": {
+      "Small": ["slender", "delicate", "narrow", "soft contour"],
+      "Medium": ["balanced", "proportional", "moderately toned"],
+      "Large": ["strong", "muscular", "defined", "full contour"]
     },
-
-    "Forearms": {
-      "Size": {
-        "Slim": {
-          "descriptors": [
-            "narrow", "slender", "light", "delicate", "graceful"
-          ],
-          "shapes": [
-            "tapered", "slightly curved", "smooth"
-          ]
-        },
-        "Average": {
-          "descriptors": [
-            "balanced", "natural", "proportional", "moderate definition", "even width"
-          ],
-          "shapes": [
-            "oval", "gentle taper", "classic"
-          ]
-        },
-        "Full": {
-          "descriptors": [
-            "rounded", "softly broad", "sturdy", "plush", "well-developed"
-          ],
-          "shapes": [
-            "rounded", "broad taper", "slightly pronounced"
-          ]
-        },
-        "Muscular": {
-          "descriptors": [
-            "firm", "defined veins", "athletic", "angular", "strong structure"
-          ],
-          "shapes": [
-            "angular", "defined contour", "tapered end"
-          ]
-        }
-      },
-      "Tone": {
-        "Soft": [
-          "minimal muscle visibility", "smooth surface", "natural appearance"
-        ],
-        "Toned": [
-          "light muscle tone", "subtle contour", "firm yet soft"
-        ],
-        "Defined": [
-          "visible forearm lines", "structured", "strongly detailed", "athletic"
-        ]
-      },
-      "Overall_Shapes": [
-        "tapered", "oval", "rounded", "angular", "contoured", "classic"
-      ]
+    "Tone": {
+      "Soft": ["minimal muscle separation", "smooth skin", "gentle lines"],
+      "Toned": ["visible muscle outline", "lightly firm texture"],
+      "Defined": ["strong definition", "vascular", "athletic shape"]
     },
-
-    "Overall_Descriptors": [
-      "feminine", "balanced", "athletic", "soft", "graceful", "defined", "symmetrical"
-    ]
+    "Overall_Shapes": ["straight", "slightly curved", "tapered", "rounded"],
+    "Descriptors_General": ["balanced", "athletic", "graceful", "strong", "smooth"]
   }
 }
