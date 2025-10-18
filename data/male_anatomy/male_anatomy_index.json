@@ -1,10 +1,23 @@
 {
   "files": [
-    "biceps.json",
-    "shoulders.json",
-    "torso.json",
+    "head.json",
+    "face.json",
+    "eyes.json",
+    "nose.json",
+    "mouth_lips.json",
+    "ears.json",
     "neck.json",
+    "shoulders.json",
+    "arms.json",
+    "biceps.json",
+    "triceps.json",
+    "forearms.json",
+    "hands.json",
+    "torso.json",
     "waist.json",
-    "legs.json"
+    "hips.json",
+    "glutes.json",
+    "legs.json",
+    "feet.json"
   ]
 }
