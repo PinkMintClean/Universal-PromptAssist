@@ -1,9 +1,4 @@
-/* =========================================================
-   COMPLETE HUMAN MICRO FEATURES - FULL UPDATED STYLESHEET
-   Updated: Interactive Tile Glossary + Neon Ratios + Collapsible
-   ========================================================= */
-
-/* ===== BASE THEME ===== */
+/* === ROOT THEME === */
 :root {
   --bg-1: #0f0316;
   --bg-2: #2b0050;
@@ -12,20 +7,28 @@
   --panel-border: rgba(255,255,255,0.06);
   --accent: #b94df4;
   --accent-2: #ff4fa1;
-  --accent-male: #2ed4c4;
-  --accent-male-dark: #015d5a;
   --muted: #cfcfe0;
+  --feminine: #ff4fa1;
+  --masculine: #00d0c9;
+  --masculine-dark: #00786b;
 }
 
-/* ===== GLOBAL ===== */
+/* === BASE === */
 * { box-sizing: border-box; }
+
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
-  font-family: "Segoe UI", Poppins, Inter, system-ui;
-  color: #fff;
+  margin: 0;
+  font-family: "Poppins", "Inter", system-ui, sans-serif;
+}
+
+body {
   background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+  color: #f3f3f5;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px;
   background-size: 400% 400%;
   animation: bgShift 30s ease infinite;
 }
@@ -36,239 +39,172 @@ html, body {
   100% { background-position: 0% 50%; }
 }
 
-/* ===== LAYOUT GRID ===== */
-.main-grid {
-  display: grid;
-  grid-template-columns: 260px 1fr 320px;
-  gap: 18px;
-  padding: 24px;
-  align-items: start;
+/* === PANELS === */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 1000px) {
-  .main-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===== PANELS / GLASS EFFECT ===== */
-.glass-panel, .panel {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 14px;
-  backdrop-filter: blur(10px) saturate(120%);
-  box-shadow: 0 6px 30px rgba(0,0,0,0.35);
-  padding: 16px;
-}
-
-/* ===== TITLES ===== */
-h2, h3, h4 {
-  margin: 0 0 6px 0;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-}
-h2 { color: var(--accent-2); font-size: 1.2rem; }
-h3 { color: var(--accent); font-size: 1rem; margin-top: 0.6rem; }
-h4 { color: var(--muted); font-size: 0.95rem; }
-
-/* ===== PROMPT AREA ===== */
-#promptBox {
-  width: 100%;
-  min-height: 120px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 1rem;
-  margin-top: 1rem;
-  overflow-y: auto;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.08);
-}
-
-/* ===== BUTTONS ===== */
-.btn, .collapsible-toggle {
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(6px);
-}
-.btn:hover, .collapsible-toggle:hover {
-  background: rgba(255,255,255,0.15);
-  box-shadow: 0 0 14px rgba(255,255,255,0.15);
-}
-
-/* ===== FEATURE BLOCKS (modernized from pills) ===== */
+/* === FEATURE PILLS (Now modern squares) === */
 .feature-pill {
   display: inline-block;
-  background: rgba(255,255,255,0.06);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
   padding: 8px 14px;
-  margin: 6px;
+  margin: 4px;
   cursor: pointer;
-  font-size: 0.9rem;
+  transition: all 0.2s ease;
   font-weight: 500;
-  color: var(--muted);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: all 0.18s ease;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .feature-pill:hover {
-  background: rgba(255,255,255,0.12);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(255,255,255,0.08);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
 .feature-pill.selected {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  border-color: rgba(255,255,255,0.15);
-  color: #fff;
-  transform: scale(1.03);
-  box-shadow: 0 4px 20px rgba(255,79,161,0.25);
+  background: linear-gradient(135deg, rgba(255,100,255,0.4), rgba(255,100,255,0.2));
+  border-color: rgba(255,100,255,0.5);
+  box-shadow: 0 0 15px rgba(255,100,255,0.8);
+  transform: scale(1.04);
 }
 
-/* ===== FEATURE CONTAINERS (collapsible) ===== */
+/* === COLLAPSIBLE TOGGLES === */
+.collapsible-toggle {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: #fff;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.collapsible-toggle:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
 .item-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  overflow: hidden;
   max-height: 160px;
-  transition: max-height 0.45s ease;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
 }
 
 .item-container.expanded {
-  max-height: 1000px;
+  max-height: 900px;
 }
 
-.collapsible-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 8px;
-  padding: 6px 14px;
-  font-size: 0.85rem;
-}
-.collapsible-toggle::after {
-  content: "▼";
-  font-size: 0.7rem;
-  opacity: 0.8;
-  transition: transform 0.25s ease;
-}
-.collapsible-toggle.expanded::after {
-  transform: rotate(180deg);
-}
-
-/* ===== CATEGORY BOXES ===== */
-.subcat {
+/* === PROMPT BOX === */
+#promptBox {
+  width: 100%;
+  min-height: 120px;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 12px;
-  padding: 12px;
-  margin-top: 10px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 2px 14px rgba(0,0,0,0.25);
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 18px rgba(255,79,161,0.12);
 }
 
-/* ===== SLIDERS (Proportion Section) ===== */
-.slider-group {
+/* === SLIDERS SECTION === */
+.slider-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 1rem;
+  gap: 12px;
+  margin: 1rem 0;
 }
 
-.slider-control {
-  position: relative;
-}
-
-.slider-control label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
+.slider-label {
+  font-size: 0.95rem;
   color: var(--muted);
-  margin-bottom: 4px;
 }
 
-input[type=range] {
+.slider {
   -webkit-appearance: none;
   width: 100%;
   height: 8px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   outline: none;
   opacity: 0.95;
-  transition: box-shadow 0.2s ease;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  position: relative;
 }
 
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 10px rgba(255,79,161,0.5);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-input[type=range]::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px rgba(255,79,161,0.8);
-}
-
-/* male ratio sliders (blue-green glow) */
-input.male-range {
-  background: linear-gradient(90deg, var(--accent-male), var(--accent-male-dark));
-}
-input.male-range::-webkit-slider-thumb {
-  border-color: var(--accent-male);
-  box-shadow: 0 0 10px rgba(0,255,255,0.6);
-}
-input.male-range::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 20px rgba(0,255,255,0.9);
-}
-
-/* glowing badge pinned near slider handle */
+/* === SLIDER BADGES === */
 .slider-badge {
   position: absolute;
   top: -28px;
-  right: 0;
-  background: rgba(255,255,255,0.15);
+  transform: translateX(-50%);
+  padding: 4px 10px;
   border-radius: 8px;
-  padding: 3px 8px;
-  font-size: 0.8rem;
   color: #fff;
-  box-shadow: 0 0 12px rgba(255,255,255,0.2);
-  transition: opacity 0.3s ease;
+  font-size: 0.8rem;
+  font-weight: 600;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
 }
 
-/* pink glow for feminine */
+.slider-badge.active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* FEMININE GLOW */
 .slider-badge.feminine {
-  background: rgba(255,79,161,0.4);
-  box-shadow: 0 0 10px rgba(255,79,161,0.6);
+  background: rgba(255, 79, 161, 0.8);
+  box-shadow: 0 0 10px rgba(255, 79, 161, 0.8),
+              0 0 25px rgba(255, 79, 161, 0.4);
+  animation: glowPink 2.5s infinite alternate;
 }
 
-/* teal/blue glow for masculine */
+/* MASCULINE GLOW */
 .slider-badge.masculine {
-  background: rgba(46,212,196,0.4);
-  box-shadow: 0 0 10px rgba(46,212,196,0.7);
+  background: rgba(0, 208, 201, 0.8);
+  box-shadow: 0 0 10px rgba(0, 208, 201, 0.8),
+              0 0 25px rgba(0, 208, 201, 0.4);
+  animation: glowBlue 2.5s infinite alternate;
 }
 
-/* ===== FOOTER ===== */
+@keyframes glowPink {
+  from { box-shadow: 0 0 10px rgba(255,79,161,0.6), 0 0 20px rgba(255,79,161,0.3); }
+  to { box-shadow: 0 0 20px rgba(255,79,161,0.9), 0 0 40px rgba(255,79,161,0.5); }
+}
+
+@keyframes glowBlue {
+  from { box-shadow: 0 0 10px rgba(0,208,201,0.6), 0 0 20px rgba(0,208,201,0.3); }
+  to { box-shadow: 0 0 20px rgba(0,208,201,0.9), 0 0 40px rgba(0,208,201,0.5); }
+}
+
+/* === FOOTER === */
 .foot {
   text-align: center;
-  padding: 16px;
+  padding: 12px;
+  opacity: 0.8;
   font-size: 0.85rem;
   color: var(--muted);
-  opacity: 0.8;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1000px) {
+  body { padding: 16px; }
+  .glass-panel { padding: 0.8rem; }
 }
