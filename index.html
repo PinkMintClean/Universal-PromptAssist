@@ -115,5 +115,44 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll(".slider-container input[type=range]");
+
+  sliders.forEach(slider => {
+    const badge = document.createElement("div");
+    badge.classList.add("slider-badge");
+
+    // Detect gender category (optional custom data attribute)
+    const type = slider.dataset.type || "neutral";
+    if (type === "feminine") badge.classList.add("feminine");
+    else if (type === "masculine") badge.classList.add("masculine");
+
+    slider.parentElement.appendChild(badge);
+
+    const updateBadge = () => {
+      const value = slider.value;
+      const min = slider.min || 0;
+      const max = slider.max || 100;
+      const percent = ((value - min) / (max - min)) * 100;
+
+      badge.style.left = `${percent}%`;
+      badge.textContent = `${value}%`;
+    };
+
+    slider.addEventListener("input", () => {
+      badge.classList.add("active");
+      updateBadge();
+    });
+
+    slider.addEventListener("change", () => {
+      badge.classList.remove("active");
+    });
+
+    updateBadge();
+  });
+});
+</script>
+
 </body>
 </html>
