@@ -89,5 +89,31 @@
 
   <script src="glossary.js" defer></script>
   <script src="script.js" defer></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Function to setup all collapsible feature containers
+  const featureContainers = document.querySelectorAll(".item-container");
+
+  featureContainers.forEach(container => {
+    const toggle = document.createElement("button");
+    toggle.classList.add("collapsible-toggle");
+    toggle.textContent = "Show More";
+    
+    // Check if the container is taller than 160px (your visible limit)
+    if (container.scrollHeight > 160) {
+      container.after(toggle);
+      toggle.style.display = "inline-flex";
+    }
+
+    // Handle toggle click
+    toggle.addEventListener("click", () => {
+      const isExpanded = container.classList.toggle("expanded");
+      toggle.classList.toggle("expanded", isExpanded);
+      toggle.textContent = isExpanded ? "Show Less" : "Show More";
+    });
+  });
+});
+</script>
+
 </body>
 </html>
