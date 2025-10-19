@@ -1,6 +1,6 @@
-// glossary.js — Automatic Loader for Female & Male Anatomy
+// glossary.js — Automatic Loader for Female & Male Anatomy + Ratio Section
 
-// Safe JSON fetch
+// ===== Safe JSON fetch =====
 async function safeFetchJson(path) {
   try {
     const res = await fetch(path);
@@ -15,7 +15,7 @@ async function safeFetchJson(path) {
   }
 }
 
-// Load a group (e.g., Female Anatomy) from index.json
+// ===== Load Group =====
 async function loadGroup(indexPath, basePath, groupName) {
   const groupResult = { group: groupName, categories: [] };
 
@@ -33,7 +33,6 @@ async function loadGroup(indexPath, basePath, groupName) {
       continue;
     }
 
-    // Expect each file to be { "BodyPart": { ... } }
     Object.keys(json).forEach(key => {
       const part = json[key];
       const sections = [];
@@ -58,20 +57,12 @@ async function loadGroup(indexPath, basePath, groupName) {
   return groupResult;
 }
 
-// Load all groups and initialize
+// ===== Load All Groups =====
 async function loadGlossary() {
   const base = "./data/";
   const groups = [
-    {
-      name: "Female Anatomy",
-      index: base + "female_anatomy/female_anatomy_index.json",
-      basePath: base + "female_anatomy/"
-    },
-    {
-      name: "Male Anatomy",
-      index: base + "male_anatomy/male_anatomy_index.json",
-      basePath: base + "male_anatomy/"
-    }
+    { name: "Female Anatomy", index: base + "female_anatomy/female_anatomy_index.json", basePath: base + "female_anatomy/" },
+    { name: "Male Anatomy", index: base + "male_anatomy/male_anatomy_index.json", basePath: base + "male_anatomy/" }
   ];
 
   const finalGlossary = [];
@@ -83,16 +74,11 @@ async function loadGlossary() {
 
   console.log("✅ Glossary loaded:", finalGlossary);
 
-  if (typeof initGlossary === "function") {
-    try {
-      initGlossary(finalGlossary);
-    } catch (e) {
-      console.error("initGlossary threw an error:", e);
-    }
-  } else {
-    console.error("initGlossary not found. Ensure script.js defines it and is loaded after glossary.js");
-  }
+  if (typeof initGlossary === "function") initGlossary(finalGlossary);
+
+  // Initialize ratio section after glossary
+  setTimeout(() => initRatioSection(), 200);
 }
 
-// Load on DOM ready
+// ===== DOM Ready =====
 document.addEventListener("DOMContentLoaded", loadGlossary);
