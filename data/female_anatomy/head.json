@@ -1,147 +1,25 @@
 {
   "Head": {
-    "Anatomical": {
-      "Size": {
-        "Small": {
-          "adjectives": [
-            "petite", "delicate", "fine-boned", "narrow", "refined", "soft-featured", "light-framed", 
-            "miniature", "subtle", "youthful", "compact", "graceful", "slender", "dainty", 
-            "gentle", "fawnlike", "tapered", "slim", "angular", "lithe", "smooth-contoured"
-          ],
-          "nouns": [
-            "small head", "delicate skull", "narrow face", "fine contour", "miniature forehead", "soft chin", "tiny jawline"
-          ],
-          "descriptions": [
-            "Features remain refined and understated, evoking a youthful and elegant appearance.",
-            "Ideal for portraits emphasizing delicacy and graceful symmetry.",
-            "Balances well with smaller shoulders and petite proportions."
-          ]
-        },
-        "Medium": {
-          "adjectives": [
-            "balanced", "proportional", "natural", "harmonious", "symmetrical", "moderate", "even", 
-            "well-shaped", "refined", "neutral", "stable", "versatile", "grace-balanced", "consistent"
-          ],
-          "nouns": [
-            "average head", "balanced skull", "moderate forehead", "refined contour", "even jawline"
-          ],
-          "descriptions": [
-            "Represents proportional harmony across facial and cranial planes.",
-            "Most commonly aligned with idealized beauty proportions.",
-            "Adaptable for both stylized and realistic renderings."
-          ]
-        },
-        "Large": {
-          "adjectives": [
-            "broad", "full", "robust", "commanding", "strong", "statuesque", "defined", "pronounced",
-            "dominant", "mature", "expressive", "bold", "structured", "broad-browed", "high-skulled"
-          ],
-          "nouns": [
-            "large head", "broad skull", "wide forehead", "strong facial plane", "pronounced jawline"
-          ],
-          "descriptions": [
-            "Emphasizes presence and expressive depth.",
-            "Lends maturity and authority to portrait framing.",
-            "Frequently used in cinematic, heroic, or intellectual archetypes."
-          ]
-        }
+    "Size": {
+      "Small": {
+        "descriptors": ["petite", "delicate", "narrow"],
+        "shapes": ["oval", "slightly pointed", "compact"]
       },
-
-      "Tone": {
-        "Soft": [
-          "smooth skin", "rounded planes", "minimal bone prominence", "youthful fullness", "delicate contours", 
-          "gentle transitions", "velvety complexion", "low contrast", "natural radiance"
-        ],
-        "Toned": [
-          "defined yet soft", "subtle angularity", "moderate contrast", "visible structure under skin", 
-          "healthy vitality", "balanced tension"
-        ],
-        "Defined": [
-          "sharp jawline", "high cheekbones", "strong chin", "noticeable temples", "expressive bone contour", 
-          "mature definition", "clear separation of planes"
-        ]
+      "Medium": {
+        "descriptors": ["balanced", "proportional", "average"],
+        "shapes": ["round", "oval", "symmetrical"]
       },
-
-      "Shape": {
-        "Oval": [
-          "balanced length to width", "narrow jawline tapering from forehead", "soft cheek curvature", "universal symmetry"
-        ],
-        "Round": [
-          "circular contour", "soft jawline", "broad cheeks", "youthful fullness"
-        ],
-        "Square": [
-          "wide jawline", "strong angles", "broad forehead", "geometric symmetry"
-        ],
-        "Heart-shaped": [
-          "wide forehead", "narrow chin", "pointed jaw", "graceful upper contour"
-        ],
-        "Diamond": [
-          "high cheekbones", "narrow forehead", "slim jaw", "tapered elegance"
-        ]
-      },
-
-      "Features": {
-        "Forehead": [
-          "broad", "narrow", "rounded", "flat", "tapered", "high", "low", "delicate hairline", "sculpted temple", "slightly sloped"
-        ],
-        "Cheekbones": [
-          "high", "sculpted", "soft", "subtle", "prominent", "angular", "rounded", "pronounced", "delicate curvature"
-        ],
-        "Jawline": [
-          "defined", "soft", "angular", "pointed", "slender", "broad", "tapered", "refined", "delicate"
-        ],
-        "Chin": [
-          "pointed", "soft-rounded", "narrow", "delicate", "angular", "cleft", "petite", "defined"
-        ],
-        "Temple": [
-          "slightly indented", "smooth", "pronounced", "gentle curvature"
-        ],
-        "Hairline": [
-          "even", "widow’s peak", "rounded", "straight", "low", "high", "delicate frame"
-        ],
-        "Cranial_Structure": [
-          "elongated skull", "short skull", "balanced dome", "tapered occipital region", "broad cranium"
-        ],
-        "Neck_Connection": [
-          "graceful slope", "defined line", "slender transition", "soft blending into collarbone"
-        ]
-      },
-
-      "Descriptors_General": [
-        "proportional", "graceful", "refined", "structured", "symmetrical", "natural balance", 
-        "aesthetic equilibrium", "harmonic alignment", "visual continuity", "organic contour flow"
-      ]
+      "Large": {
+        "descriptors": ["broad", "angular", "full"],
+        "shapes": ["round", "broad", "angular"]
+      }
     },
-
-    "Artistic": {
-      "Ethereal": [
-        "luminescent skin tone", "angelic symmetry", "soft luminous edge lighting", "diffused radiance", 
-        "porcelain highlights", "glow around temples", "dreamlike translucency", "misty atmosphere"
-      ],
-      "Realistic": [
-        "true skin texture", "visible pores", "natural light scatter", "micro shadow under cheekbone", 
-        "subtle imperfection rendering", "photoreal balance", "natural tone variance"
-      ],
-      "Cinematic": [
-        "moody contrast", "three-point lighting effect", "depth gradient shadows", "slight vignette focus", 
-        "filmic softness", "highlighted brow line", "expression-driven realism"
-      ],
-      "Hyperreal": [
-        "macro texture definition", "extreme detail mapping", "fine subsurface scattering", "depth-of-field isolation", 
-        "studio polish aesthetic", "sharp gloss contrast", "skin microfracture realism"
-      ],
-      "Painterly": [
-        "soft brush transitions", "oil glaze highlight", "Renaissance tone gradient", "Impressionist color softness", 
-        "baroque facial symmetry", "artistic emphasis on planes"
-      ],
-      "Fantasy": [
-        "celestial glow", "moonlit complexion", "enchanted softness", "divine facial proportion", 
-        "luminary hue transitions", "magical realism undertones"
-      ],
-      "Descriptors_General": [
-        "elegant composition", "visual harmony", "depth tone cohesion", "balanced luminosity", "high fidelity realism", 
-        "expressive tone mapping", "sublime texture rendering"
-      ]
-    }
+    "Tone": {
+      "Soft": ["smooth skin", "youthful look"],
+      "Toned": ["slightly angular", "subtle definition"],
+      "Defined": ["prominent cheekbones", "strong jawline"]
+    },
+    "Overall_Shapes": ["oval", "round", "square", "heart-shaped"],
+    "Descriptors_General": ["balanced", "symmetrical", "elegant"]
   }
 }
