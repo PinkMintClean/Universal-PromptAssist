@@ -1,1 +1,36 @@
+{
+  "Nose": {
+    "Subfeatures": {
+      "Bridge": {
+        "Size": {
+          "Small": ["narrow", "slight"],
+          "Medium": ["moderate", "balanced"],
+          "Large": ["broad", "prominent"]
+        },
+        "Shape": {
+          "Straight": ["smooth", "aligned"],
+          "Roman": ["slightly curved", "defined"],
+          "Button": ["rounded", "delicate"]
+        },
+        "Descriptors_Anatomical": ["well-proportioned bridge", "nostril alignment"],
+        "Descriptors_Animated": ["expressive highlight", "soft shadow"],
+        "Descriptors_General": ["symmetrical", "refined"]
+      },
+      "Tip": {
+        "Size": {
+          "Small": ["petite", "rounded"],
+          "Medium": ["balanced", "slightly pointed"],
+          "Large": ["prominent", "defined"]
+        },
+        "Shape": {
+          "Rounded": ["soft curve", "subtle projection"],
+          "Pointed": ["slightly tapered", "refined tip"]
+        },
+        "Descriptors_Anatomical": ["nostril symmetry", "tip alignment"],
+        "Descriptors_Animated": ["highlighted curve", "expressive appearance"],
+        "Descriptors_General": ["elegant", "harmonious"]
+      }
+    }
+  }
+}
 
