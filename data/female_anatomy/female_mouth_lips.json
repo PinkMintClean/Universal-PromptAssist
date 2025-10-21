@@ -1,1 +1,22 @@
+{
+  "Mouth_Lips": {
+    "Subfeatures": {
+      "Lips": {
+        "Size": {
+          "Thin": ["delicate", "subtle"],
+          "Medium": ["balanced", "softly contoured"],
+          "Full": ["prominent", "rounded", "plump"]
+        },
+        "Shape": {
+          "Bow-shaped": ["gentle curve", "slightly defined cupid’s bow"],
+          "Round": ["soft curve", "balanced"],
+          "Heart": ["accentuated cupid’s bow", "soft corners"]
+        },
+        "Descriptors_Anatomical": ["well-defined vermilion border", "balanced symmetry"],
+        "Descriptors_Animated": ["slightly parted", "softly highlighted", "expressive smile"],
+        "Descriptors_General": ["elegant", "youthful", "refined"]
+      }
+    }
+  }
+}
 
