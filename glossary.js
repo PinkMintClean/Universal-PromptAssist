@@ -35,7 +35,7 @@ async function loadGroup(indexPath, basePath, groupName) {
       const part = json[key];
       const categories = [];
 
-      // Handle nested Subfeatures
+      // Nested Subfeatures
       if (part.Subfeatures && typeof part.Subfeatures === "object") {
         const subcategories = [];
 
@@ -99,14 +99,12 @@ async function loadGlossary() {
 // ===== DOM Ready =====
 document.addEventListener("DOMContentLoaded", loadGlossary);
 
-// ===== Example initGlossary compatible snippet =====
-// (Replace your current initGlossary with this if you haven't already)
-
-function initGlossary(groups){
+// ===== initGlossary (Hierarchical + Collapsible) =====
+function initGlossary(groups) {
   const container = document.querySelector("#subcategories");
   container.innerHTML = "";
 
-  groups.forEach(group=>{
+  groups.forEach(group => {
     const groupBox = document.createElement("div");
     groupBox.className = "glass-panel";
 
@@ -114,7 +112,7 @@ function initGlossary(groups){
     groupTitle.textContent = group.group;
     groupBox.appendChild(groupTitle);
 
-    group.categories.forEach(cat=>{
+    group.categories.forEach(cat => {
       const catBox = document.createElement("div");
       catBox.className = "subcat";
 
@@ -123,8 +121,8 @@ function initGlossary(groups){
       catBox.appendChild(catTitle);
 
       // Handle nested subcategories
-      if(cat.subcategories){
-        cat.subcategories.forEach(sub=>{
+      if (cat.subcategories) {
+        cat.subcategories.forEach(sub => {
           const subBox = document.createElement("div");
           subBox.className = "subfeature-box";
 
@@ -132,43 +130,49 @@ function initGlossary(groups){
           subTitle.textContent = sub.name;
           subBox.appendChild(subTitle);
 
-          const features = [
-            ...(sub.Descriptors_Anatomical || []),
-            ...(sub.Descriptors_Animated || []),
-            ...(sub.Overall_Shapes || []),
-            ...(sub.Descriptors_General || [])
-          ];
+          ["Descriptors_Anatomical", "Descriptors_Animated", "Overall_Shapes", "Descriptors_General"].forEach(type => {
+            if (sub[type] && sub[type].length) {
+              const sectionBox = document.createElement("div");
+              sectionBox.className = "descriptor-section";
 
-          const featuresContainer = document.createElement("div");
-          featuresContainer.className = "item-container";
+              const sectionTitle = document.createElement("h5");
+              sectionTitle.textContent = type.replace(/_/g, " ");
+              sectionBox.appendChild(sectionTitle);
 
-          features.forEach(f=>{
-            const pill = document.createElement("span");
-            pill.className = "feature-pill";
-            pill.textContent = f;
-            pill.onclick = ()=>toggleFeature(sub);
-            featuresContainer.appendChild(pill);
+              const featuresContainer = document.createElement("div");
+              featuresContainer.className = "item-container";
+
+              sub[type].forEach(f => {
+                const pill = document.createElement("span");
+                pill.className = "feature-pill";
+                pill.textContent = f;
+                pill.onclick = () => toggleFeature(f);
+                featuresContainer.appendChild(pill);
+              });
+
+              sectionBox.appendChild(featuresContainer);
+
+              // Collapsible "Show More" for long lists
+              if (featuresContainer.scrollHeight > 80) {
+                const toggle = document.createElement("button");
+                toggle.className = "collapsible-toggle";
+                toggle.textContent = "Show More";
+                featuresContainer.after(toggle);
+                toggle.onclick = () => {
+                  const expanded = featuresContainer.classList.toggle("expanded");
+                  toggle.textContent = expanded ? "Show Less" : "Show More";
+                };
+              }
+
+              subBox.appendChild(sectionBox);
+            }
           });
-
-          subBox.appendChild(featuresContainer);
-
-          // Collapsible logic
-          if(featuresContainer.scrollHeight > 80){
-            const toggle = document.createElement("button");
-            toggle.className = "collapsible-toggle";
-            toggle.textContent = "Show More";
-            featuresContainer.after(toggle);
-            toggle.onclick = ()=>{
-              const expanded = featuresContainer.classList.toggle("expanded");
-              toggle.textContent = expanded ? "Show Less" : "Show More";
-            };
-          }
 
           catBox.appendChild(subBox);
         });
-      } else if(cat.sections){
-        // fallback for flat JSON
-        cat.sections.forEach(section=>{
+      } else if (cat.sections) {
+        // Fallback for flat JSONs
+        cat.sections.forEach(section => {
           const secTitle = document.createElement("h4");
           secTitle.textContent = section.title;
           catBox.appendChild(secTitle);
@@ -176,11 +180,11 @@ function initGlossary(groups){
           const featuresContainer = document.createElement("div");
           featuresContainer.className = "item-container";
 
-          section.features.forEach(f=>{
+          section.features.forEach(f => {
             const pill = document.createElement("span");
-            pill.className="feature-pill";
-            pill.textContent=f;
-            pill.onclick = ()=>toggleFeature(f);
+            pill.className = "feature-pill";
+            pill.textContent = f;
+            pill.onclick = () => toggleFeature(f);
             featuresContainer.appendChild(pill);
           });
 
@@ -188,7 +192,7 @@ function initGlossary(groups){
         });
       }
 
-      groupBox.appendChild(catBox);
+      container.appendChild(catBox);
     });
 
     container.appendChild(groupBox);
