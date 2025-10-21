@@ -1,1 +1,51 @@
+{
+  "Face": {
+    "Subfeatures": {
+      "Overall_Face": {
+        "Size": {
+          "Small": ["petite", "delicate", "narrow"],
+          "Medium": ["balanced", "moderate", "proportional"],
+          "Large": ["broad", "full", "prominent"]
+        },
+        "Shape": {
+          "Oval": ["softly tapered", "harmonious"],
+          "Round": ["gentle curves", "youthful appearance"],
+          "Square": ["angular jawline", "structured"],
+          "Heart": ["slightly pointed chin", "accentuated cheekbones"]
+        },
+        "Descriptors_Anatomical": ["symmetrical", "well-proportioned", "defined features"],
+        "Descriptors_Animated": ["expressive expressions", "soft highlights", "natural glow"],
+        "Descriptors_General": ["elegant", "balanced", "refined"]
+      },
+      "Cheeks": {
+        "Size": {
+          "Small": ["slim", "subtle contour"],
+          "Medium": ["moderate fullness", "softly contoured"],
+          "Large": ["full", "prominent", "rounded"]
+        },
+        "Shape": {
+          "Round": ["soft curve", "youthful"],
+          "Heart": ["lifted", "accentuated cheekbones"]
+        },
+        "Descriptors_Anatomical": ["high cheekbones", "smooth skin"],
+        "Descriptors_Animated": ["gentle blush", "radiant appearance"],
+        "Descriptors_General": ["symmetrical", "refined"]
+      },
+      "Jawline": {
+        "Size": {
+          "Small": ["slender", "delicate"],
+          "Medium": ["balanced", "moderate"],
+          "Large": ["strong", "defined", "prominent"]
+        },
+        "Shape": {
+          "Square": ["angular", "structured"],
+          "Oval": ["softly curved", "tapered"]
+        },
+        "Descriptors_Anatomical": ["defined mandible", "subtle muscle lines"],
+        "Descriptors_Animated": ["expressive contour", "slightly pronounced"],
+        "Descriptors_General": ["symmetrical", "refined"]
+      }
+    }
+  }
+}
 
