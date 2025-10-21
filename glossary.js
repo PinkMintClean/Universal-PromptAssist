@@ -1,3 +1,5 @@
+// ===== glossary.js — Smart Loader for Female & Male Anatomy + Ratios =====
+
 // ===== Safe JSON fetch =====
 async function safeFetchJson(path) {
   try {
@@ -13,60 +15,72 @@ async function safeFetchJson(path) {
   }
 }
 
-// ===== Load a single JSON file and parse subfeatures =====
+// ===== Recursive Subfeature Parser =====
+function parseSubfeatures(subfeatures) {
+  const sections = [];
+  Object.keys(subfeatures).forEach(subkey => {
+    const subpart = subfeatures[subkey];
+
+    // Size
+    if (subpart.Size && typeof subpart.Size === "object") {
+      Object.keys(subpart.Size).forEach(sz => {
+        sections.push({
+          title: sz,
+          features: subpart.Size[sz]
+        });
+      });
+    }
+
+    // Shape
+    if (subpart.Shape && typeof subpart.Shape === "object") {
+      Object.keys(subpart.Shape).forEach(sh => {
+        sections.push({
+          title: sh,
+          features: subpart.Shape[sh]
+        });
+      });
+    }
+
+    // Descriptors
+    if (Array.isArray(subpart.Descriptors_Anatomical)) {
+      sections.push({ title: "Anatomical", features: subpart.Descriptors_Anatomical });
+    }
+    if (Array.isArray(subpart.Descriptors_Animated)) {
+      sections.push({ title: "Animated", features: subpart.Descriptors_Animated });
+    }
+    if (Array.isArray(subpart.Descriptors_General)) {
+      sections.push({ title: "General", features: subpart.Descriptors_General });
+    }
+
+    // Nested Subfeatures
+    if (subpart.Subfeatures && typeof subpart.Subfeatures === "object") {
+      const nestedSections = parseSubfeatures(subpart.Subfeatures);
+      sections.push(...nestedSections.map(ns => ({
+        title: `${subkey} > ${ns.title}`,
+        features: ns.features
+      })));
+    }
+  });
+
+  return sections;
+}
+
+// ===== Load Group =====
 async function loadGroup(indexPath, basePath, groupName) {
   const groupResult = { group: groupName, categories: [] };
-
   const index = await safeFetchJson(indexPath);
-  if (!index || !Array.isArray(index.files)) {
-    console.warn("Invalid or missing index:", indexPath);
-    return groupResult;
-  }
+  if (!index || !Array.isArray(index.files)) return groupResult;
 
   for (const fname of index.files) {
     const filePath = basePath + fname;
     const json = await safeFetchJson(filePath);
-    if (!json) {
-      console.warn("Skipped missing/invalid file:", filePath);
-      continue;
-    }
+    if (!json) continue;
 
     Object.keys(json).forEach(key => {
       const part = json[key];
-      const categories = [];
-
-      // Nested Subfeatures
-      if (part.Subfeatures && typeof part.Subfeatures === "object") {
-        const subcategories = [];
-
-        Object.keys(part.Subfeatures).forEach(subKey => {
-          const sub = part.Subfeatures[subKey];
-          subcategories.push({
-            name: subKey,
-            Descriptors_Anatomical: sub.Descriptors_Anatomical || [],
-            Descriptors_Animated: sub.Descriptors_Animated || [],
-            Overall_Shapes: sub.Overall_Shapes || [],
-            Descriptors_General: sub.Descriptors_General || []
-          });
-        });
-
-        categories.push({
-          category: key,
-          subcategories
-        });
-
-      } else {
-        // Fallback for flat JSON
-        const sections = [];
-        if (part.Size && typeof part.Size === "object") sections.push({ title: "Size", features: Object.keys(part.Size) });
-        if (part.Tone && typeof part.Tone === "object") sections.push({ title: "Tone", features: Object.keys(part.Tone) });
-        if (Array.isArray(part.Overall_Shapes)) sections.push({ title: "Overall Shapes", features: part.Overall_Shapes });
-        if (Array.isArray(part.Descriptors_General)) sections.push({ title: "General Descriptors", features: part.Descriptors_General });
-
-        categories.push({ category: key, sections });
-      }
-
-      groupResult.categories.push(...categories);
+      let subfeatures = part.Subfeatures || { [key]: part };
+      const sections = parseSubfeatures(subfeatures);
+      groupResult.categories.push({ category: key, sections });
     });
   }
 
@@ -93,108 +107,10 @@ async function loadGlossary() {
   if (typeof initGlossary === "function") initGlossary(finalGlossary);
 
   // Initialize ratio section after glossary
-  setTimeout(() => initRatioSection?.(), 200);
+  setTimeout(() => {
+    if (typeof initRatioSection === "function") initRatioSection();
+  }, 200);
 }
 
 // ===== DOM Ready =====
 document.addEventListener("DOMContentLoaded", loadGlossary);
-
-// ===== initGlossary (Hierarchical + Collapsible) =====
-function initGlossary(groups) {
-  const container = document.querySelector("#subcategories");
-  container.innerHTML = "";
-
-  groups.forEach(group => {
-    const groupBox = document.createElement("div");
-    groupBox.className = "glass-panel";
-
-    const groupTitle = document.createElement("h2");
-    groupTitle.textContent = group.group;
-    groupBox.appendChild(groupTitle);
-
-    group.categories.forEach(cat => {
-      const catBox = document.createElement("div");
-      catBox.className = "subcat";
-
-      const catTitle = document.createElement("h3");
-      catTitle.textContent = cat.category;
-      catBox.appendChild(catTitle);
-
-      // Handle nested subcategories
-      if (cat.subcategories) {
-        cat.subcategories.forEach(sub => {
-          const subBox = document.createElement("div");
-          subBox.className = "subfeature-box";
-
-          const subTitle = document.createElement("h4");
-          subTitle.textContent = sub.name;
-          subBox.appendChild(subTitle);
-
-          ["Descriptors_Anatomical", "Descriptors_Animated", "Overall_Shapes", "Descriptors_General"].forEach(type => {
-            if (sub[type] && sub[type].length) {
-              const sectionBox = document.createElement("div");
-              sectionBox.className = "descriptor-section";
-
-              const sectionTitle = document.createElement("h5");
-              sectionTitle.textContent = type.replace(/_/g, " ");
-              sectionBox.appendChild(sectionTitle);
-
-              const featuresContainer = document.createElement("div");
-              featuresContainer.className = "item-container";
-
-              sub[type].forEach(f => {
-                const pill = document.createElement("span");
-                pill.className = "feature-pill";
-                pill.textContent = f;
-                pill.onclick = () => toggleFeature(f);
-                featuresContainer.appendChild(pill);
-              });
-
-              sectionBox.appendChild(featuresContainer);
-
-              // Collapsible "Show More" for long lists
-              if (featuresContainer.scrollHeight > 80) {
-                const toggle = document.createElement("button");
-                toggle.className = "collapsible-toggle";
-                toggle.textContent = "Show More";
-                featuresContainer.after(toggle);
-                toggle.onclick = () => {
-                  const expanded = featuresContainer.classList.toggle("expanded");
-                  toggle.textContent = expanded ? "Show Less" : "Show More";
-                };
-              }
-
-              subBox.appendChild(sectionBox);
-            }
-          });
-
-          catBox.appendChild(subBox);
-        });
-      } else if (cat.sections) {
-        // Fallback for flat JSONs
-        cat.sections.forEach(section => {
-          const secTitle = document.createElement("h4");
-          secTitle.textContent = section.title;
-          catBox.appendChild(secTitle);
-
-          const featuresContainer = document.createElement("div");
-          featuresContainer.className = "item-container";
-
-          section.features.forEach(f => {
-            const pill = document.createElement("span");
-            pill.className = "feature-pill";
-            pill.textContent = f;
-            pill.onclick = () => toggleFeature(f);
-            featuresContainer.appendChild(pill);
-          });
-
-          catBox.appendChild(featuresContainer);
-        });
-      }
-
-      container.appendChild(catBox);
-    });
-
-    container.appendChild(groupBox);
-  });
-}
