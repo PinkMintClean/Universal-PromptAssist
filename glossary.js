@@ -1,5 +1,3 @@
-// glossary.js — Automatic Loader for Female & Male Anatomy + Ratio Section
-
 // ===== Safe JSON fetch =====
 async function safeFetchJson(path) {
   try {
@@ -15,7 +13,7 @@ async function safeFetchJson(path) {
   }
 }
 
-// ===== Load Group =====
+// ===== Load a single JSON file and parse subfeatures =====
 async function loadGroup(indexPath, basePath, groupName) {
   const groupResult = { group: groupName, categories: [] };
 
@@ -35,22 +33,40 @@ async function loadGroup(indexPath, basePath, groupName) {
 
     Object.keys(json).forEach(key => {
       const part = json[key];
-      const sections = [];
+      const categories = [];
 
-      if (part && typeof part === "object") {
-        if (part.Size && typeof part.Size === "object")
-          sections.push({ title: "Size", features: Object.keys(part.Size) });
-        if (part.Tone && typeof part.Tone === "object")
-          sections.push({ title: "Tone", features: Object.keys(part.Tone) });
-        if (part.Peak_Height && typeof part.Peak_Height === "object")
-          sections.push({ title: "Peak Height", features: Object.keys(part.Peak_Height) });
-        if (Array.isArray(part.Overall_Shapes))
-          sections.push({ title: "Overall Shapes", features: part.Overall_Shapes });
-        if (Array.isArray(part.Descriptors_General))
-          sections.push({ title: "General Descriptors", features: part.Descriptors_General });
+      // Check for nested Subfeatures
+      if (part.Subfeatures && typeof part.Subfeatures === "object") {
+        const subcategories = [];
+
+        Object.keys(part.Subfeatures).forEach(subKey => {
+          const sub = part.Subfeatures[subKey];
+          subcategories.push({
+            name: subKey,
+            Descriptors_Anatomical: sub.Descriptors_Anatomical || [],
+            Descriptors_Animated: sub.Descriptors_Animated || [],
+            Overall_Shapes: sub.Overall_Shapes || [],
+            Descriptors_General: sub.Descriptors_General || []
+          });
+        });
+
+        categories.push({
+          category: key,
+          subcategories
+        });
+
+      } else {
+        // Fallback for flat JSON structure
+        const sections = [];
+        if (part.Size && typeof part.Size === "object") sections.push({ title: "Size", features: Object.keys(part.Size) });
+        if (part.Tone && typeof part.Tone === "object") sections.push({ title: "Tone", features: Object.keys(part.Tone) });
+        if (Array.isArray(part.Overall_Shapes)) sections.push({ title: "Overall Shapes", features: part.Overall_Shapes });
+        if (Array.isArray(part.Descriptors_General)) sections.push({ title: "General Descriptors", features: part.Descriptors_General });
+
+        categories.push({ category: key, sections });
       }
 
-      groupResult.categories.push({ category: key, sections });
+      groupResult.categories.push(...categories);
     });
   }
 
@@ -77,7 +93,7 @@ async function loadGlossary() {
   if (typeof initGlossary === "function") initGlossary(finalGlossary);
 
   // Initialize ratio section after glossary
-  setTimeout(() => initRatioSection(), 200);
+  setTimeout(() => initRatioSection?.(), 200);
 }
 
 // ===== DOM Ready =====
