@@ -1,25 +1,121 @@
 {
   "Head": {
-    "Size": {
-      "Small": {
-        "descriptors": ["petite", "delicate", "narrow"],
-        "shapes": ["oval", "slightly pointed", "compact"]
+    "Subfeatures": {
+      "Overall_Head": {
+        "Size": {
+          "Small": {
+            "descriptors": ["petite", "delicate", "narrow", "compact", "fine-boned", "slightly tapered"],
+            "shapes": ["oval", "slightly pointed", "compact", "rounded", "softly angular"]
+          },
+          "Medium": {
+            "descriptors": ["balanced", "proportional", "average", "harmonious", "well-contoured", "moderately structured"],
+            "shapes": ["round", "oval", "symmetrical", "softly squared", "slightly elongated"]
+          },
+          "Large": {
+            "descriptors": ["broad", "angular", "full", "strongly contoured", "wide-set", "prominent"],
+            "shapes": ["round", "broad", "angular", "slightly elongated", "rectangular"]
+          }
+        },
+        "Tone": ["Soft", "Toned", "Defined"],
+        "Definition": ["Subtle", "Moderate", "Strong"],
+        "Symmetry": ["Balanced", "Slightly asymmetrical"],
+        "Descriptors_Anatomical": ["oval", "slightly pointed", "compact", "moderate forehead slope", "defined temples", "rounded crown"],
+        "Descriptors_Animated": ["balanced", "elegant", "refined", "harmonious", "youthful", "graceful"],
+        "Overall_Shapes": ["oval", "round", "square", "heart-shaped"],
+        "Descriptors_General": ["balanced", "symmetrical", "elegant"]
       },
-      "Medium": {
-        "descriptors": ["balanced", "proportional", "average"],
-        "shapes": ["round", "oval", "symmetrical"]
+      "Forehead": {
+        "Size": {
+          "Small": {
+            "descriptors": ["narrow", "petite", "compact", "slightly receding", "gentle slope"],
+            "shapes": ["rounded", "slightly pointed", "tapered"]
+          },
+          "Medium": {
+            "descriptors": ["balanced width", "smooth contour", "moderate height", "even slope"],
+            "shapes": ["oval", "slightly curved", "symmetrical"]
+          },
+          "Large": {
+            "descriptors": ["broad", "prominent", "high", "well-defined", "slightly elongated"],
+            "shapes": ["square", "oval", "flat", "rounded"]
+          }
+        },
+        "Tone": ["Soft", "Defined"],
+        "Definition": ["Subtle", "Moderate", "Strong"],
+        "Symmetry": ["Balanced", "Slightly asymmetrical"],
+        "Descriptors_Anatomical": ["high forehead", "gently sloped", "even width", "balanced with temples"],
+        "Descriptors_Animated": ["youthful look", "elegant", "refined", "smooth"],
+        "Overall_Shapes": ["oval", "slightly rounded", "square"],
+        "Descriptors_General": ["harmonious with head"]
       },
-      "Large": {
-        "descriptors": ["broad", "angular", "full"],
-        "shapes": ["round", "broad", "angular"]
+      "Temples": {
+        "Size": {
+          "Small": {
+            "descriptors": ["narrow", "softly contoured", "slight recess", "delicate structure"],
+            "shapes": ["tapered", "rounded", "slightly concave"]
+          },
+          "Medium": {
+            "descriptors": ["moderate width", "evenly contoured", "balanced prominence"],
+            "shapes": ["rounded", "oval", "softly angular"]
+          },
+          "Large": {
+            "descriptors": ["broad", "prominent", "defined contour", "slightly angular"],
+            "shapes": ["broad", "flat", "strongly defined"]
+          }
+        },
+        "Tone": ["Soft", "Defined"],
+        "Definition": ["Subtle", "Moderate", "Strong"],
+        "Symmetry": ["Balanced", "Slightly asymmetrical"],
+        "Descriptors_Anatomical": ["slightly recessed temples", "soft curvature", "balanced with forehead"],
+        "Descriptors_Animated": ["refined", "harmonious", "delicate impression"],
+        "Overall_Shapes": ["oval", "tapered", "rounded"],
+        "Descriptors_General": ["balanced with forehead and crown"]
+      },
+      "Crown": {
+        "Size": {
+          "Small": {
+            "descriptors": ["slightly flat", "compact crown", "gentle curvature"],
+            "shapes": ["rounded", "softly sloped", "oval"]
+          },
+          "Medium": {
+            "descriptors": ["moderately elevated", "well-proportioned curvature", "balanced slope"],
+            "shapes": ["oval", "rounded", "slightly elongated"]
+          },
+          "Large": {
+            "descriptors": ["prominent crown", "high curvature", "well-defined top", "slightly elongated"],
+            "shapes": ["round", "oval", "slightly pointed"]
+          }
+        },
+        "Tone": ["Soft", "Defined"],
+        "Definition": ["Subtle", "Moderate", "Strong"],
+        "Symmetry": ["Balanced", "Slightly asymmetrical"],
+        "Descriptors_Anatomical": ["rounded crown", "slight elongation", "balanced with temples"],
+        "Descriptors_Animated": ["elegant", "harmonious", "refined"],
+        "Overall_Shapes": ["oval", "round", "slightly elongated"],
+        "Descriptors_General": ["balanced cranial profile"]
+      },
+      "Back_of_Head": {
+        "Size": {
+          "Small": {
+            "descriptors": ["slightly narrow", "compact occiput", "gentle curvature"],
+            "shapes": ["rounded", "softly tapered"]
+          },
+          "Medium": {
+            "descriptors": ["moderate width", "even curvature", "balanced posterior"],
+            "shapes": ["oval", "rounded"]
+          },
+          "Large": {
+            "descriptors": ["broad occiput", "full back-of-head", "strong contour"],
+            "shapes": ["broad", "rounded", "slightly angular"]
+          }
+        },
+        "Tone": ["Soft", "Defined"],
+        "Definition": ["Subtle", "Moderate", "Strong"],
+        "Symmetry": ["Balanced", "Slightly asymmetrical"],
+        "Descriptors_Anatomical": ["rounded occiput", "slightly broad", "even curvature"],
+        "Descriptors_Animated": ["harmonious", "proportional", "refined"],
+        "Overall_Shapes": ["oval", "rounded", "slightly angular"],
+        "Descriptors_General": ["balanced with overall head"]
       }
-    },
-    "Tone": {
-      "Soft": ["smooth skin", "youthful look"],
-      "Toned": ["slightly angular", "subtle definition"],
-      "Defined": ["prominent cheekbones", "strong jawline"]
-    },
-    "Overall_Shapes": ["oval", "round", "square", "heart-shaped"],
-    "Descriptors_General": ["balanced", "symmetrical", "elegant"]
+    }
   }
 }
