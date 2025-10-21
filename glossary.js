@@ -35,7 +35,7 @@ async function loadGroup(indexPath, basePath, groupName) {
       const part = json[key];
       const categories = [];
 
-      // Check for nested Subfeatures
+      // Handle nested Subfeatures
       if (part.Subfeatures && typeof part.Subfeatures === "object") {
         const subcategories = [];
 
@@ -56,7 +56,7 @@ async function loadGroup(indexPath, basePath, groupName) {
         });
 
       } else {
-        // Fallback for flat JSON structure
+        // Fallback for flat JSON
         const sections = [];
         if (part.Size && typeof part.Size === "object") sections.push({ title: "Size", features: Object.keys(part.Size) });
         if (part.Tone && typeof part.Tone === "object") sections.push({ title: "Tone", features: Object.keys(part.Tone) });
@@ -98,3 +98,99 @@ async function loadGlossary() {
 
 // ===== DOM Ready =====
 document.addEventListener("DOMContentLoaded", loadGlossary);
+
+// ===== Example initGlossary compatible snippet =====
+// (Replace your current initGlossary with this if you haven't already)
+
+function initGlossary(groups){
+  const container = document.querySelector("#subcategories");
+  container.innerHTML = "";
+
+  groups.forEach(group=>{
+    const groupBox = document.createElement("div");
+    groupBox.className = "glass-panel";
+
+    const groupTitle = document.createElement("h2");
+    groupTitle.textContent = group.group;
+    groupBox.appendChild(groupTitle);
+
+    group.categories.forEach(cat=>{
+      const catBox = document.createElement("div");
+      catBox.className = "subcat";
+
+      const catTitle = document.createElement("h3");
+      catTitle.textContent = cat.category;
+      catBox.appendChild(catTitle);
+
+      // Handle nested subcategories
+      if(cat.subcategories){
+        cat.subcategories.forEach(sub=>{
+          const subBox = document.createElement("div");
+          subBox.className = "subfeature-box";
+
+          const subTitle = document.createElement("h4");
+          subTitle.textContent = sub.name;
+          subBox.appendChild(subTitle);
+
+          const features = [
+            ...(sub.Descriptors_Anatomical || []),
+            ...(sub.Descriptors_Animated || []),
+            ...(sub.Overall_Shapes || []),
+            ...(sub.Descriptors_General || [])
+          ];
+
+          const featuresContainer = document.createElement("div");
+          featuresContainer.className = "item-container";
+
+          features.forEach(f=>{
+            const pill = document.createElement("span");
+            pill.className = "feature-pill";
+            pill.textContent = f;
+            pill.onclick = ()=>toggleFeature(sub);
+            featuresContainer.appendChild(pill);
+          });
+
+          subBox.appendChild(featuresContainer);
+
+          // Collapsible logic
+          if(featuresContainer.scrollHeight > 80){
+            const toggle = document.createElement("button");
+            toggle.className = "collapsible-toggle";
+            toggle.textContent = "Show More";
+            featuresContainer.after(toggle);
+            toggle.onclick = ()=>{
+              const expanded = featuresContainer.classList.toggle("expanded");
+              toggle.textContent = expanded ? "Show Less" : "Show More";
+            };
+          }
+
+          catBox.appendChild(subBox);
+        });
+      } else if(cat.sections){
+        // fallback for flat JSON
+        cat.sections.forEach(section=>{
+          const secTitle = document.createElement("h4");
+          secTitle.textContent = section.title;
+          catBox.appendChild(secTitle);
+
+          const featuresContainer = document.createElement("div");
+          featuresContainer.className = "item-container";
+
+          section.features.forEach(f=>{
+            const pill = document.createElement("span");
+            pill.className="feature-pill";
+            pill.textContent=f;
+            pill.onclick = ()=>toggleFeature(f);
+            featuresContainer.appendChild(pill);
+          });
+
+          catBox.appendChild(featuresContainer);
+        });
+      }
+
+      groupBox.appendChild(catBox);
+    });
+
+    container.appendChild(groupBox);
+  });
+}
