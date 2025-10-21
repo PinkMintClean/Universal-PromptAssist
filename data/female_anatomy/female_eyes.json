@@ -1,1 +1,50 @@
+{
+  "Eyes": {
+    "Subfeatures": {
+      "Overall_Eyes": {
+        "Size": {
+          "Small": ["narrow", "delicate"],
+          "Medium": ["balanced", "moderate"],
+          "Large": ["wide", "prominent"]
+        },
+        "Shape": {
+          "Almond": ["slightly upturned", "balanced"],
+          "Round": ["open", "bright"],
+          "Hooded": ["softly covered", "subtle lid"]
+        },
+        "Descriptors_Anatomical": ["well-defined eyelid crease", "eyebrow alignment", "symmetrical iris"],
+        "Descriptors_Animated": ["sparkling", "expressive gaze", "soft highlight"],
+        "Descriptors_General": ["elegant", "youthful", "refined"]
+      },
+      "Eyelids": {
+        "Size": {
+          "Thin": ["delicate", "subtle"],
+          "Medium": ["moderate", "natural"],
+          "Full": ["prominent", "rounded"]
+        },
+        "Shape": {
+          "Curved": ["gentle", "soft"],
+          "Straight": ["smooth", "balanced"]
+        },
+        "Descriptors_Anatomical": ["eyelid crease defined", "smooth skin"],
+        "Descriptors_Animated": ["slightly lifted", "expressive shadow"],
+        "Descriptors_General": ["harmonious", "refined"]
+      },
+      "Brows": {
+        "Size": {
+          "Thin": ["delicate", "soft"],
+          "Medium": ["balanced", "natural"],
+          "Thick": ["prominent", "structured"]
+        },
+        "Shape": {
+          "Arched": ["slightly raised", "soft curve"],
+          "Straight": ["even line", "balanced proportion"]
+        },
+        "Descriptors_Anatomical": ["symmetrical arch", "aligned with eyes"],
+        "Descriptors_Animated": ["expressive lift", "soft shadowing"],
+        "Descriptors_General": ["elegant", "refined"]
+      }
+    }
+  }
+}
 
