@@ -1,64 +1,66 @@
-// ===== Global Selection Set =====
+// ====== GLOBAL STATE ======
 const selectedFeatures = new Set();
-
-// ===== Prompt Box =====
-let promptBox = document.querySelector("#promptBox");
-
-// ===== Show Descriptor Types Toggle =====
 let showDescriptorTypes = false;
+const promptBox = document.querySelector("#promptBox");
 
-// ===== Toggle Feature Function =====
-function toggleFeature(el, feature){
-  if(selectedFeatures.has(feature)){
-    selectedFeatures.delete(feature);
+// ====== TOGGLE FEATURE ======
+function toggleFeature(el, featureObj) {
+  if (selectedFeatures.has(featureObj)) {
+    selectedFeatures.delete(featureObj);
     el.classList.remove("selected");
   } else {
-    selectedFeatures.add(feature);
+    selectedFeatures.add(featureObj);
     el.classList.add("selected");
   }
   updatePrompt();
 }
 
-// ===== Update Prompt =====
-function updatePrompt(){
+// ====== UPDATE PROMPT ======
+function updatePrompt() {
   const includeRatios = document.querySelector("#includeRatios").checked;
-  let text = Array.from(selectedFeatures).map(f => {
-    // Check if feature has anatomical/animated descriptors
-    if(f.Descriptors_Anatomical && f.Descriptors_Animated){
-      if(showDescriptorTypes){
-        return [
-          ...f.Descriptors_Anatomical.map(d=>`${d} (Anatomical)`),
-          ...f.Descriptors_Animated.map(d=>`${d} (Animated)`)
-        ].join(", ");
-      } else {
-        // Merge arrays naturally for clean prompt flow
-        return [...f.Descriptors_Anatomical, ...f.Descriptors_Animated].join(", ");
+  let text = Array.from(selectedFeatures)
+    .map((f) => {
+      // Handle structured descriptors
+      if (f.Descriptors_Anatomical || f.Descriptors_Animated) {
+        const ana = f.Descriptors_Anatomical || [];
+        const ani = f.Descriptors_Animated || [];
+        if (showDescriptorTypes) {
+          return [
+            ...ana.map((d) => `${d} (Anatomical)`),
+            ...ani.map((d) => `${d} (Animated)`),
+          ].join(", ");
+        } else {
+          return [...ana, ...ani].join(", ");
+        }
       }
-    }
-    // If feature is a simple string array
-    if(Array.isArray(f)) return f.join(", ");
-    return f;
-  }).join("; ");
 
-  // Include ratios if checkbox is checked
-  if(includeRatios){
-    const ratios = Array.from(document.querySelectorAll(".sliders input")).map(sl=>{
-      return `${sl.previousSibling.textContent.trim()} ${sl.value}%`;
-    });
-    text += ratios.length ? ", " + ratios.join(", ") : "";
+      // Handle selected string descriptor
+      if (f.selected) return f.selected;
+
+      // Otherwise return raw string
+      return f;
+    })
+    .join("; ");
+
+  // Add ratios if selected
+  if (includeRatios) {
+    const ratios = Array.from(document.querySelectorAll(".sliders input")).map(
+      (sl) => `${sl.previousSibling.textContent.trim()} ${sl.value}%`
+    );
+    if (ratios.length) text += ", " + ratios.join(", ");
   }
 
   promptBox.textContent = text;
 }
 
-// ===== Clear All Button =====
+// ====== CLEAR ALL ======
 document.querySelector("#clearAll").onclick = () => {
   selectedFeatures.clear();
-  document.querySelectorAll(".feature-pill.selected").forEach(el=>el.classList.remove("selected"));
+  document.querySelectorAll(".feature-pill.selected").forEach((el) => el.classList.remove("selected"));
   updatePrompt();
 };
 
-// ===== Toggle Descriptor Types Button =====
+// ====== TOGGLE DESCRIPTOR TYPES BUTTON ======
 const toggleButton = document.createElement("button");
 toggleButton.id = "toggleDescriptorTypes";
 toggleButton.className = "btn small";
@@ -71,12 +73,12 @@ toggleButton.onclick = () => {
   updatePrompt();
 };
 
-// ===== Initialize Glossary =====
-function initGlossary(groups){
+// ====== INIT GLOSSARY (dynamic & collapsible) ======
+function initGlossary(groups) {
   const container = document.querySelector("#subcategories");
   container.innerHTML = "";
 
-  groups.forEach(group=>{
+  groups.forEach((group) => {
     const groupBox = document.createElement("div");
     groupBox.className = "glass-panel";
 
@@ -84,7 +86,7 @@ function initGlossary(groups){
     groupTitle.textContent = group.group;
     groupBox.appendChild(groupTitle);
 
-    group.categories.forEach(cat=>{
+    group.categories.forEach((cat) => {
       const catBox = document.createElement("div");
       catBox.className = "subcat";
 
@@ -92,43 +94,47 @@ function initGlossary(groups){
       catTitle.textContent = cat.category;
       catBox.appendChild(catTitle);
 
-      cat.subcategories?.forEach(sub=>{
+      // Use sections directly
+      cat.sections?.forEach((section) => {
         const subBox = document.createElement("div");
         subBox.className = "subfeature-box";
 
         const subTitle = document.createElement("h4");
-        subTitle.textContent = sub.name || sub.title || "Feature";
+        subTitle.textContent = section.title || "Feature";
         subBox.appendChild(subTitle);
 
-        // Loop through descriptor arrays
-        ["Descriptors_Anatomical","Descriptors_Animated","Overall_Shapes","Descriptors_General"].forEach(key=>{
-          if(sub[key] && sub[key].length){
-            const featuresContainer = document.createElement("div");
-            featuresContainer.className = "item-container";
+        // Container for features
+        const featuresContainer = document.createElement("div");
+        featuresContainer.className = "item-container";
 
-            sub[key].forEach(f=>{
-              const pill = document.createElement("span");
-              pill.className = "feature-pill";
-              pill.textContent = f;
-              pill.onclick = () => toggleFeature(sub); // attach full subfeature for prompt
-              featuresContainer.appendChild(pill);
+        (section.features || []).forEach((f) => {
+          const pill = document.createElement("span");
+          pill.className = "feature-pill";
+          pill.textContent = f;
+          // attach section metadata
+          pill.onclick = () =>
+            toggleFeature(pill, {
+              ...section,
+              selected: f,
             });
-
-            subBox.appendChild(featuresContainer);
-
-            // Collapsible logic
-            if(featuresContainer.scrollHeight > 80){
-              const toggle = document.createElement("button");
-              toggle.className = "collapsible-toggle";
-              toggle.textContent = "Show More";
-              featuresContainer.after(toggle);
-              toggle.onclick = () => {
-                const expanded = featuresContainer.classList.toggle("expanded");
-                toggle.textContent = expanded ? "Show Less" : "Show More";
-              };
-            }
-          }
+          featuresContainer.appendChild(pill);
         });
+
+        subBox.appendChild(featuresContainer);
+
+        // Collapsible logic
+        setTimeout(() => {
+          if (featuresContainer.scrollHeight > 120) {
+            const toggle = document.createElement("button");
+            toggle.className = "collapsible-toggle";
+            toggle.textContent = "Show More";
+            featuresContainer.after(toggle);
+            toggle.onclick = () => {
+              const expanded = featuresContainer.classList.toggle("expanded");
+              toggle.textContent = expanded ? "Show Less" : "Show More";
+            };
+          }
+        }, 150);
 
         catBox.appendChild(subBox);
       });
@@ -140,42 +146,41 @@ function initGlossary(groups){
   });
 }
 
-// ===== Ratio Sliders =====
-document.querySelectorAll(".sliders input").forEach(slider=>{
+// ====== SLIDER BADGES ======
+document.querySelectorAll(".sliders input").forEach((slider) => {
   const badge = document.createElement("div");
-  badge.className="slider-badge";
-  slider.parentElement.style.position="relative";
+  badge.className = "slider-badge";
+  slider.parentElement.style.position = "relative";
   slider.parentElement.appendChild(badge);
 
-  // Color-coded glow
   const type = slider.dataset.type || "neutral";
-  if(type==="feminine") badge.classList.add("feminine");
-  if(type==="masculine") badge.classList.add("masculine");
+  if (type === "feminine") badge.classList.add("feminine");
+  if (type === "masculine") badge.classList.add("masculine");
 
-  const updateBadge = ()=>{
-    const min = slider.min||0;
-    const max = slider.max||100;
-    const percent = (slider.value - min) / (max - min) * 100;
-    badge.style.left = percent+"%";
-    badge.textContent = slider.value+"%";
+  const updateBadge = () => {
+    const min = slider.min || 0;
+    const max = slider.max || 100;
+    const percent = ((slider.value - min) / (max - min)) * 100;
+    badge.style.left = percent + "%";
+    badge.textContent = slider.value + "%";
   };
 
   slider.addEventListener("input", updateBadge);
   updateBadge();
 });
 
-// ===== Apply Ratios Button =====
+// ====== APPLY RATIOS ======
 document.querySelector("#applyRatios").onclick = () => {
   updatePrompt();
   const reminder = document.querySelector("#ratioReminder");
-  if(!reminder){
+  if (!reminder) {
     const r = document.createElement("small");
-    r.id="ratioReminder";
-    r.textContent="✅ Ratios applied to prompt!";
-    r.style.color="#ff79c6";
-    r.style.display="block";
-    r.style.marginTop="4px";
+    r.id = "ratioReminder";
+    r.textContent = "✅ Ratios applied to prompt!";
+    r.style.color = "#ff79c6";
+    r.style.display = "block";
+    r.style.marginTop = "4px";
     document.querySelector(".right-panel").prepend(r);
-    setTimeout(()=>r.remove(),2500);
+    setTimeout(() => r.remove(), 2500);
   }
 };
